@@ -1,29 +1,22 @@
 #include <stdio.h>
 /**
- * main - Entry point
- *Return: Always 0 (Success)
+ * main - main block
+ * Description: Get a random number and check its last digit, compare it with 5
+ * Return: 0
  */
-
 int main(void)
 {
+	char c = 'a';
 
-	int h = 97;
-
-
-	while (h >= 122)
+	while (c <= 'z')
 	{
-	
-		if (h == 101 || h == 113)
+		if (c != 'e' && c != 'q')
 		{
-			h++;
-			continue;
+			putchar(c);
 		}
-		putchar(h);
-		h++;
+		c++;
 	}
-		putchar('\n');
 
-return (0);
-
-
+	putchar('\n');
+	return (0);
 }
