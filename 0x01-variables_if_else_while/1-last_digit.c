@@ -20,7 +20,7 @@ int main(void)
 
 	if (ls > 5)
 	{
-		ptintf("and is greater than 5");
+		printf("and is greater than 5");
 	}
 	else if (ls == 0)
 	{
