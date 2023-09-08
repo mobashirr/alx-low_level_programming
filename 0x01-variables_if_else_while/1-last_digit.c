@@ -4,9 +4,9 @@
 /* more headers goes there */
 
 /**
- *main -Entry point
+ *main - Entry point
  *DECRIPTION : PROGRAM_THAT_COMPARE_THE_LAST_DIGIT
- *return 0 (success)
+ *return: Always 0 (success)
  */
 int main(void)
 {
