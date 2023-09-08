@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - Entry point
- * Discription : charectrt loob
+ * Description : charectrt loob
  * return 0 (success)
  */
 int main(void)
