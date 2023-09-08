@@ -15,12 +15,12 @@ int main(void)
                         h++;
         }
 
-	while (c <= 90)
+	while (c <= 90);
 	{
                 putchar(c);
 			c++;
 	}
-		putchar('\n')
+		putchar('\n');
 return (0);
 }
 
