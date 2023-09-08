@@ -6,16 +6,14 @@
  */
 int main(void)
 {
-	int h ;
-	h = 96
-	
-	while (h < = 122);
+
+	int h = 97;
+
+	while (h <= 122)
 	{
-	putchar("h");
-		ch++;
+		putchar(h);
+			h++;
 	}
-	putchar("\n");
+		putchar('\n');
 return (0);
-
-
 }
