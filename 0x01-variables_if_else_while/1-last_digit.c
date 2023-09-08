@@ -3,12 +3,12 @@
 #include <stdio.h>
 /* more headers goes there */
 
+
 /**
  * main - Entry point
- *
- * DESCRIPTION: PROGRAM_THAT_COMPARE_THE_LAST_DIGIT
- *return: Always 0 (success)
+ *Return: Always 0 (Success)
  */
+
 int main(void)
 {
 	int n;
