@@ -1,8 +1,6 @@
 #include <stdio.h>
 /**
  * main - Entry point
- * Description: charectrt loob
- * return: Always 0 (success)
  *
  */
 
