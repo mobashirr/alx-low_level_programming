@@ -7,21 +7,23 @@
 int main(void)
 {
 
-        int h = 97;
-	int c = 65
+	int h = 97, c = 65;
 
-        while (h <= 122)
-        {
-                putchar(h);
-                        h++;
-        }
 
-	while (c <= 90);
+	while (h <= 122)
 	{
-                putchar(c);
+		putchar(h);
+			h++;
+	}
+
+	while (c <= 90)
+	{
+		putchar(c);
 			c++;
 	}
-		putchar('\n');
+
+	putchar('\n');
+
 return (0);
 }
 
