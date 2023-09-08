@@ -4,7 +4,7 @@ int main(void)
 
     {   
 
- puts("\"Programming");puts("is");puts("like");puts("building");puts("a");puts("multilingual"); puts("puzzle");
+ puts("\"Programming is like building a multilingual puzzle");
 
             return 0 ;
 
