@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /*
- *main function need to be described in betty style
+ * main - A program that prints a line with the puts function
+ * Return: 0 (Success)
  */
 int main(void)
 {
