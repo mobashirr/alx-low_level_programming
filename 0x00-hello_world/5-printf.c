@@ -5,6 +5,6 @@
  */
 int main(void)
 {
-printf("c languge is profitonal languge,\n");
+printf("ith proper grammar, but the outcome is a piece of art,\n");
 return (0);
 }
