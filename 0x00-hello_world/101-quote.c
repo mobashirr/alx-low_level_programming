@@ -1,8 +1,8 @@
 #include <unistd.h>
 /**
- *main - its print the the statment bellow
+ * main - Entry point
  *
- * return (1)
+ * Return: Always 0 (Success)
  */
 
 int main(void)
