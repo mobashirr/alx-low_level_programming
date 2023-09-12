@@ -1,12 +1,12 @@
 #include "main.h"
 
- /**
- * main - check if its print alphabet 10 times 
+/**
+ * main - check the code.
  *
- * Return: Always 0 (success)
+ * Return: Always 0.
  */
-	int main(void)
+int main(void)
 {
-	    print_alphabet_x10();
-	    return (0);
+    print_alphabet_x10();
+    return (0);
 }
