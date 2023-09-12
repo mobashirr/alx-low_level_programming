@@ -12,10 +12,10 @@
 		r = 0;
 
 
-		while (r <= 9);
+		while (r <= 9)
 
 	{
-		c = 'a'
+		c = 'a';
 		while (c <= 'z')
 		{
 		_putchar(c)
