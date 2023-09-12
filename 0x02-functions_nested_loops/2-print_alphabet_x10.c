@@ -11,15 +11,17 @@
 
 		r = 0;
 
+
 		while (r <= 9)
+
+	{
+		c = 'a'
+		while (c <= 'z')
 		{
-			c = 'a'
-			while (c <= 'z')
-			{
-			_putchar(c)
-			}
-			++c
-			_putchar('\n')
+		_putchar(c)
 		}
-		++r
+		++c;
+			_putchar('\n');
+	}
+	++r;
 }
