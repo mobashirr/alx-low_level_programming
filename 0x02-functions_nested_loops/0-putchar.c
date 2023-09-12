@@ -9,7 +9,7 @@
 int main ()
 {
 
-puts("\_putchar");
+printf ("_putchar");
 
 return (0);
 
