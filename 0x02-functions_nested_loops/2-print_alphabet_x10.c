@@ -9,11 +9,17 @@
 		char c;
 		int r;
 
-	for (r = 0, r <= 9; r++)
-	
-	{for (c = 'a'; c <= 'z'; c++)
-		_putchar(c);
+		r = 0;
 
-		_putchar('\n');
-	}
+		while (r <= 9)
+		{
+			c = 'a'
+			while (c <= 'z')
+			{
+			_putchar(c)
+			}
+			++c
+			_putchar('\n')
+		}
+		++r
 }
