@@ -3,7 +3,7 @@
 /**
  * _isalpha - checks alphabets.
  * @c : is the char
- * Return; 1 if its a char only other wise its, 0 its not char
+ * Return: 1 if its a char only other wise its, 0 its not char
  *
  */
 
