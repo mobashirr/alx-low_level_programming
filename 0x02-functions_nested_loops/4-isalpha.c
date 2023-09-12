@@ -4,7 +4,7 @@
  * _isalpha - checks alphabets.
  *
  * @c : is the char
- * REturn; 1 if its a char only other wise its 0
+ * REturn; 1 if its a char only other wise its, 0 its not char
  */
 
 
