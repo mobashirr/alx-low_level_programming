@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
  * main.h - is like a header file.
- *@i : int
+ *@i: int
  * Return: depend on the fun you want.
  */
 
