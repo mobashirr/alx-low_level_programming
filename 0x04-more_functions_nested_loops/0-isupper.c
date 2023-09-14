@@ -11,18 +11,17 @@ int _isupper(char c)
 {
 	char c;
 
-	while ()
-	{
+	
+	if(c = < 65 && c = > 90)
 
-		if (c = < 65 && c = > 90)
-		{
-			c = 1;
-		}
+	{
+		return(1);
+	}
+
 	else
+
 	{
-			c = 0;
+			return(0);
 	}
 
-	}
-	return (c);
 }
