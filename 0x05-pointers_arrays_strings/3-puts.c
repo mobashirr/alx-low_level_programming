@@ -8,5 +8,5 @@
 
 void _puts(char *str)
 {
-	_puts(char *str);
+	_puts(const char *str);
 }
