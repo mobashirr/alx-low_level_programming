@@ -1,8 +1,9 @@
 #include "main.h"
- /**
- * reset_to_98 - change a value of number useing its address
- *
- * Return: 0 (new value which is 98)
+
+/**
+ * reset_to_98 - reset value to 98
+ * @a: address value
+ * Return: viod
  */
 void reset_to_98(int *a)
 {
