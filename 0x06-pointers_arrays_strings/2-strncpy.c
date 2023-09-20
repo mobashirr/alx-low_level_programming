@@ -20,5 +20,8 @@ while (dest[a] != '\0')
 	}
 	++a;
 }
+
+	for (; i < n; i++)
+		dist[i] = '\0'
 return (dest);
 }
