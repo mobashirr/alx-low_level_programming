@@ -22,6 +22,6 @@ while (dest[a] != '\0')
 }
 
 	for (; i < n; i++)
-		dist[i] = '\0'
+		dest[i] = '\0';
 return (dest);
 }
