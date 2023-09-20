@@ -21,7 +21,7 @@ while (dest[a] != '\0')
 	++a;
 }
 
-	for (; i < n; i++)
+	for (; a < n; i++)
 		dest[i] = '\0';
 return (dest);
 }
