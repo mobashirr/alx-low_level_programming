@@ -20,8 +20,10 @@ while (dest[a] != '\0')
 	}
 	++a;
 }
-
-	for (; a < n; a++)
+	while ( a < n)
+		{
 		dest[a] = '\0';
+			++a;
+		}
 return (dest);
 }
