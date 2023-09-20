@@ -8,7 +8,7 @@
 
 char *string_toupper(char *str)
 {
-int i = 0;
+char i = 0;
 
 while (i > = 'a' && i <= 'z')
 {
