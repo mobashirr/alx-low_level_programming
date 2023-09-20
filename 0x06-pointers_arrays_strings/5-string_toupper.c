@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * *string_touupper - changes all lowercase letters of a string to uppercase.
+ * string_touupper - changes all lowercase letters of a string to uppercase.
  *@str: is string
  *Return: char *str to pointer
  */
@@ -15,7 +15,7 @@ if (str[i] >= 'a' && str[i] <= 'z')
 {
 	str[i] = str[i] - 32;
 }
- ++i;
+	++i;
 }
 return (str);
 }
