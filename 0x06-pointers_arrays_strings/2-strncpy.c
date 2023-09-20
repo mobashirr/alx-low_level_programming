@@ -22,7 +22,7 @@ while (dest[a] != '\0')
 }
 	while ( a < n)
 		{
-		dest[a] = '\0';
+		src[a] = '\0';
 			++a;
 		}
 return (dest);
