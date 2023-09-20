@@ -17,8 +17,8 @@ while (dest[a] != '\0')
 	if (a < n)
 	{
 	dest[a] = src[a];
+		++a;
 	}
-	++a;
 }
 	while ( a < n)
 		{
