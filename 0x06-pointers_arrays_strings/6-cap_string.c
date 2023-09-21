@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 /**
  * cap_string - capitalizes most of the words in a string.
  * @s: analized string.
@@ -7,7 +7,7 @@
 char *cap_string(char *s)
 {
 	int a, g;
-	int m] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int [m] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
 
 a = 0;
@@ -35,3 +35,4 @@ while (*(s + a) != '\0')
 	}
 	return (s);
 }
+
