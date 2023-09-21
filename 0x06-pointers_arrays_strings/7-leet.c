@@ -16,7 +16,7 @@ int d;
 
 while (s[a] != '\0')
 {
-for (d = 0; d < 9; d++)
+for (d = 0; b[d] != '\0'; d++)
 {
 if (s[a] == b[d])
 s[a] = c[d];
