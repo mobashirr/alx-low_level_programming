@@ -17,12 +17,12 @@ int d;
 
 while (s[a] != '\0')
 {
-for (d = 0; d < 9; d++)
+for (d = 0; d < 9;)
 {
 
 if (s[a] == b[d])
-s[a] = c[d];
-
+{s[a] = c[d];}
+++d;
 }
 ++a;
 }
