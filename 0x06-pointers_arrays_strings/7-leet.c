@@ -11,36 +11,20 @@
 char *leet(char *s)
 {
 int a = 0;
-
+char b[] = "aeotlAEOTL";
+char c[] = "4307143071";
+int d;
 
 while (s[a] != '\0')
 {
-
-if (s[a] == 'a' || s[a] == 'A')
+for (d = 0; d < 9; ++d)
 {
-s[a] = '4';
-}
 
-else if (s[a] == 'e' || s[a] == 'E')
-{
-s[a] = '3';
+if (s[a] == b[d])
+	{
+	s[a] = c[d];
+	}
 }
-
-else if (s[a] == 'o' || s[a] == 'O')
-{
-s[a] = '0';
-}
-
-else if (s[a] == 't' || s[a] == 'T')
-{
-s[a] = '7';
-}
-
-else if (s[a] == 'l' || s[a] == 'L')
-{
-s[a] = '1';
-}
-
 ++a;
 }
 
