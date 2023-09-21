@@ -17,7 +17,7 @@ int d;
 
 while (s[a] != '\0')
 {
-for (d = 0; d < 9; ++d)
+for (d = 0; d < 9; d++)
 {
 
 if (s[a] == b[d])
