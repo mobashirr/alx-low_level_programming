@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * leet - acci like
  *@s: string
