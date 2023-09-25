@@ -1,23 +1,22 @@
 #include "main.h"
 
 /**
- * _memset - function fill with b
- *@s: array 
- *@b: will be filled with
- *@n: the num of elment to fill
- *Return: char*
- */
+ *  * _memset - function fill with b
+ *   *@s: array 
+ *    *@b: will be filled with
+ *     *@n: the num of elment to fill
+ *      *Return: char*
+ *       */
 
 char *_memset(char *s, char b, unsigned int n)
 {
-int i;
+	int i;
 
-for (i = 0; i < n; ++i)
-{
-s[i] = b;
+	for (i = 0; i < n;)
+	{
+		s[i] = b;
+	++i;
+	}
 
+	return (s);
 }
-
-return (s);
-}
-
