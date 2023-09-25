@@ -1,6 +1,10 @@
 #include "main.h"
 
 /**
+  * _strst - locates a substring.
+  *@haystack: main string
+  *@needle: string to search
+  *Return: new string
   * coincidence - define if the string d id in c or not
   * @c: main string.
   * @d: string that will search for
@@ -21,12 +25,6 @@ int coincidence(char *c, char *d)
 }
 
 
-/**
-  * _strst - locates a substring.
-  *@haystack: main string
-  *@needle: string to search
-  *Return: new string
-  */
 
 char *_strstr(char *haystack, char *needle)
 {
