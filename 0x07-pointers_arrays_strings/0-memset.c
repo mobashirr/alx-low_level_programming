@@ -2,11 +2,11 @@
 
 /**
  *  * _memset - function fill with b
- *   *@s: array 
+ *   *@s: array
  *    *@b: will be filled with
  *     *@n: the num of elment to fill
  *      *Return: char*
- *       */
+ */
 
 char *_memset(char *s, char b, unsigned int n)
 {
