@@ -1,4 +1,4 @@
-#inclde "main.h"
+#include "main.h"
 
 /**
  * _memcpy - copy elements from dest to src
@@ -10,16 +10,12 @@
 
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int a;
-	int b;
+	unsigned int a = 0;
 
-	for (a = 0; dest[a] != '\0' && a < n; a++)
+	while (a < n)
 	{
-	for (b = 0; src[b] != '\0'; b++)
-	{
-	dest[a] = src[b];
-	}
-
+	dest[a] = src[a];
+	++a;
 	}
 
 	return (dest);
