@@ -21,10 +21,10 @@ int coincidence(char *c, char *d)
 }
 
 /**
-  * _strst - locates a substring.
-  *@needle: string to search
-  *@haystack: main string
-  *Return: new string
+* _strst - locates a substring.
+*@needle: string to search
+*@haystack: main string
+*Return: new string
 */
 
 char *_strstr(char *haystack, char *needle)
