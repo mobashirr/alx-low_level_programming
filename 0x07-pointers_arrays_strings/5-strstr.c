@@ -21,7 +21,7 @@ int coincidence(char *c, char *d)
 }
 
 /**
-*_strst - locates a substring.
+* _strstr - locates a substring.
 *@needle: string to search
 *@haystack: main string
 *Return: new string
