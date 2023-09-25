@@ -18,11 +18,8 @@ int j, sumdiag1 = 0, sumdiag2 = 0, step1, step2;
 	{
 		step1 =  (size + 1) * i;
 		sumdiag1 = sumdiag1 + *(a + step1);
-    
 	}
-
-  
-	for (j = 1; j <= size; j++)
+for (j = 1; j <= size; j++)
 	{
 		step2 = (size - 1) * j;
 		sumdiag2 = sumdiag2 + *(a + step2);
