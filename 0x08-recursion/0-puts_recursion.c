@@ -6,7 +6,7 @@
  *Return: char to pointer
  */
 
-void _puts_recursion(char *s)
+char _puts_recursion(char *s)
 {
 if (*s == '\0')
 {
