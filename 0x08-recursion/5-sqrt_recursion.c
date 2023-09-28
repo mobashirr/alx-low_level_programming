@@ -3,7 +3,7 @@
 /**
  * sqrt_check - check the square root.
  * @n: Number to find square root of
- * @l: The number checked to see if it's the sqrt of n
+ * @c: The number checked to see if it's the sqrt of n
  *
  * Return: The square root value
  */
@@ -31,7 +31,6 @@ int sqrt_check(int n, int c)
 
 int _sqrt_recursion(int n)
 {
-	
 if (n == 1)
 {
 return (1);
