@@ -9,20 +9,21 @@
 
 int check_num(int n, int l)
 {
-  
+
 	if (n % l == 0)
 	{
 		return (0);
 	}
-    
-	      else if (l >= (n / 2))
-	            {
-	            	return (1);
-	            }
-	                  else
-                    	{
-	                  	return (check_num(n, l + 1));
-	                    }
+
+ else if (l >= (n / 2))
+{
+return (1);
+}
+else
+{
+return (check_num(n, l + 1));
+}
+
 }
 
 
@@ -35,13 +36,14 @@ int check_num(int n, int l)
 int is_prime_number(int n)
 {
   
-	if (n <= 1)
-	{
-		return (0);
-	}
-  
-	else
-	{
-		return (check_num(n, 2));
-	}
+if (n <= 1)
+{
+return (0);
+}
+
+else
+{
+return (check_num(n, 2));
+}
+
 }
