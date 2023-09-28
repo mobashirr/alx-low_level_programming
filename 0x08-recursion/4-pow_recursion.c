@@ -27,7 +27,7 @@ return (1);
 
 if (y < 0)
 {
-sum = -x * _pow_recursion(x, y - 1);
+sum = -x * _pow_recursion(x, y + 1);
 return (sum);
 }
 
