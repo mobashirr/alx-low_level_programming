@@ -1,0 +1,154 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+/**
+ * len - find length of string
+ *@st: string
+ *Return: length of string
+ */
+
+int len(char *st)
+{
+
+int length = 1;
+
+if(*st == '\0')
+{
+	return(0);
+}
+
+if (*st != '\0')
+{
+length = length + len(st + 1);
+
+return (length);
+}
+
+
+return (length);
+}
+
+
+
+/**
+ * check - check for string if its paalindrome of note
+ *@string: string
+ *@l: length of that string.
+ *Return: int value of the num of matched charecters
+ */
+
+int check (char *string,int l)
+
+{
+
+int check_result = 1;
+
+
+if (*string != string[l])
+{return (0);}
+
+
+/*
+// base for 2 if length is 
+if ((l +1) % 2 == 0 && ((l +1) / 2)  == (l +1) )
+{
+	return (0);
+}
+
+// base for 1
+if ((l +1) % 2 != 0 && l / 2 == (l +1))
+{
+	return(0);
+}
+
+
+if ((l +1) / 2 < (l +1) && *string != string[l])
+{
+	return (-1);
+}
+*/
+
+if (*string == string[l])
+{
+
+check_result = 1  + check(string + 1, l - 1);
+
+return (check_result);
+}
+
+
+
+return (0);
+
+}
+
+
+
+/**
+ * is_palindrome - check if string is palindromee or not.
+ *@s: string.
+ *Return : 1 if its palindrome or 0 if not.
+ */
+
+
+int is_palindrome(char *s)
+{
+
+int result = 0;
+int le = 0;
+
+le = len(s);
+printf("length of %s is %d\n",s,le);
+printf("and first elment is %c\n",*s,le);
+
+if (*s == '\0')
+{
+	return (1);
+}
+
+else
+{
+	result = check (s, le);
+	
+	
+/*
+if ((le) %2 != 0 && result == le / 2)
+	{
+		return (1);
+	}
+	
+		if ((le) %2 == 0 && result == le / 2)
+	{
+		return (1);
+	}
+	
+	else 
+	{
+		return (212);
+	}
+
+}
+*/
+
+
+return(1);
+}
+
+int main(void)
+{
+    int r;
+
+    r = is_palindrome("level");
+    printf("%d\n", r);
+    r = is_palindrome("redder");
+    printf("%d\n", r);
+    r = is_palindrome("test");
+    printf("%d\n", r);
+    r = is_palindrome("step on no pets");
+    printf("%d\n", r);
+    
+    return (0);
+}
+
+
+
