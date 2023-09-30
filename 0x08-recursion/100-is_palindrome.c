@@ -40,7 +40,6 @@ int check (char *string,int l)
 
 {
 
-int a = 0;
 int check_result = 0;
 
 if (l % 2 == 0 && l / 2 > l )
