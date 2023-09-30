@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * len - find length of string
  *@st: string
@@ -19,7 +18,7 @@ if(*st == '\0')
 
 if (*st != '\0')
 {
-len = len + len(st + 1);
+length = length + len(st + 1);
 
 return (length);
 }
@@ -69,7 +68,7 @@ return (check_result);
 
 
 
-return ();
+return (check_result);
 
 }
 
@@ -90,14 +89,14 @@ int le = 0;
 
 le = len(s) - 1;
 
-if (*s == '')
+if (*s == '\0')
 {
 	return (1);
 }
 
 else
 {
-	result = check (*s, le);
+	result = check (s, le);
 
 	if (result == le / 2)
 	{
