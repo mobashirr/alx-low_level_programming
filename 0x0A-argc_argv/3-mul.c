@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 int a = argc;
 int b = 1;
 int sum = 1;
-
+int nu = 0;
 
 if (a != 3)
 {
@@ -23,7 +23,9 @@ return (0);
 while (a > b)
 {
 
-sum = sum * atoi(argv[b]);
+nu = atoi(argv[b]);
+
+sum = sum *nu;
 ++b;
 }
 
