@@ -10,7 +10,7 @@
 
 char *create_array(unsigned int size, char c)
 {
-unsigned int o;
+unsigned int o =0;
 char *A = (char *)malloc(size * sizeof(c));
 
 if (size <= 0)
@@ -18,19 +18,13 @@ if (size <= 0)
 return (NULL);
 }
 
-for (o = 0; o < size; o++)
+while (o < size)
 {
-
-if(A[o] == NULL)
-{
-return (NULL);
-}
-
 A[o] = c;
+++o;
 
 }
 
 
 return (A);
 }
-
