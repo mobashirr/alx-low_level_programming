@@ -18,7 +18,7 @@ if (size <= 0)
 return (NULL);
 }
 
-for (o = 0; o < size; o++)
+for (o = 0; o < size - 1; o++)
 {
 
 A[o] = c;
