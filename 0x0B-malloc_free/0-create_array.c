@@ -26,11 +26,6 @@ return (NULL);
 for (o = 0; o < size; o++)
 {
 
-if(A[o] == NULL)
-{
-return (NULL);
-}
-
 A[o] = c;
 
 }
