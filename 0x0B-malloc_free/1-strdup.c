@@ -17,7 +17,7 @@ while (string[len] != '\0')
 }
 
 
-return (len + 1);
+return (len);
 }
 
 /**
@@ -30,8 +30,7 @@ return (len + 1);
 char *_strdup(char *str)
 {
 int a = length(str);
-char *A = (char *)malloc(sizeof(char) * a);
-
+char *A = (char *)malloc(sizeof(char) * (a + 1));
 
 if (a <= 0 || A == NULL)
 {
