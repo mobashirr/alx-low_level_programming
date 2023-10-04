@@ -18,7 +18,7 @@ return(NULL);
 }
 
 
-arr = (int *)malloc(sizeof(int ) * height);
+arr = malloc(sizeof(int ) * height);
 
 while (a < height)
 {
