@@ -41,7 +41,7 @@ return (NULL);
 
 a = 0;
 
-while (A[a] != '\0' && str[a] != '\0')
+while (str[a] != '\0')
 {
 A[a] = str[a];
 ++a;
