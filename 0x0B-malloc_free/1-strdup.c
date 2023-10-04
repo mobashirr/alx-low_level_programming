@@ -34,13 +34,14 @@ char *A;
 
 if (str == NULL)
 {
-	return (NULL);
+return (NULL);
 }
 
 A = (char *)malloc(sizeof(char) * (a + 1));
 
 if (A == NULL)
 {
+free(A);
 return (NULL);
 }
 
