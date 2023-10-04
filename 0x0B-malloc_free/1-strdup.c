@@ -17,7 +17,7 @@ while (string[len] != '\0')
 }
 
 
-return (len);
+return (len + 1);
 }
 
 /**
