@@ -13,7 +13,7 @@ int **arr = (int **)malloc(sizeof(int *) * width);
 int a = 0;
 int b = 0;
 
-if (arr == NULL || width = 0 || height = 0)
+if (arr == NULL || width == 0 || height == 0)
 {
 return(NULL);
 }
