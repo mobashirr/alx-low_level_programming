@@ -6,7 +6,7 @@
  *Return: int (length).
  */
 
-int length(*string)
+int length(char *string)
 {
 
 int len = 0;
