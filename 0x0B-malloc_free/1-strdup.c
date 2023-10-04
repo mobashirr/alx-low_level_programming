@@ -1,6 +1,26 @@
 #include "main.h"
 
 /**
+ * length - find length of string
+ *@string: id string
+ *Return: int (length).
+ */
+
+int length(*string)
+{
+
+int len = 0;
+
+while (string[len] != '\0')
+{
+	++len;
+}
+
+
+return (len);
+}
+
+/**
  * _strdup - allocate memory for given string
  *@str: is the string
  *
@@ -9,22 +29,15 @@
 
 char *_strdup(char *str)
 {
-int a = 0;
-
-while (str[a] != '\0')
-{
-	++a;
-}
-
-
+int a = length(str);
 char *A = (char *)malloc(sizeof(char) * a);
+
 
 if (a <= 0 || A == NULL)
 {
 
 return (NULL);
 }
-
 
 
 a = 0;
