@@ -29,11 +29,12 @@ return (len);
 
 char *_strdup(char *str)
 {
-if (str == NULL)
-{return (NULL);}
-
 int a = length(str);
 char *A = (char *)malloc(sizeof(char) * (a + 1));
+if (A == NULL)
+{
+	return (NULL);
+}
 
 if (a <= 0)
 {
