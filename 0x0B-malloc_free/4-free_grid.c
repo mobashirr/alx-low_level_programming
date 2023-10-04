@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * alloc_grid - make tow dimantional array
- *@width: row
+ * free_grid - free allocated memory
+ *@grid: row
  *@height: colomon
  *Return: pointer to pointer.
  */
 
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
-int **arr = (int **)malloc(height * sizeof(int *) * width);
+int **arr = (int **)malloc(height * sizeof(int *));
 
 int a = 0;
 int b = 0;
