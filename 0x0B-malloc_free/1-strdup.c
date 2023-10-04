@@ -32,14 +32,14 @@ char *_strdup(char *str)
 int a = length(str);
 char *A;
 
-if (A == NULL)
+if (str == NULL)
 {
 	return (NULL);
 }
 
 A = (char *)malloc(sizeof(char) * (a + 1));
 
-if (a <= 0)
+if (a <= 0 || A == NULL)
 {
 
 return (NULL);
