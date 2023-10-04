@@ -14,15 +14,17 @@ int b = 0;
 int **arr;
 if (width == 0 || height == 0)
 {
-return(NULL);
+return (NULL);
 }
 
 
-arr = malloc(sizeof(*arr ) * height);
+arr = malloc(sizeof(*arr) * height);
 
 if (arr == NULL)
+{
+free(arr);
 return (NULL);
-
+}
 while (a < height)
 {
 arr[a] = (int *)malloc(width * sizeof(int));
