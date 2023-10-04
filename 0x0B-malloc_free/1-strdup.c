@@ -39,7 +39,7 @@ if (str == NULL)
 
 A = (char *)malloc(sizeof(char) * (a + 1));
 
-if (a <= 0 || A == NULL)
+if (A == NULL)
 {
 
 return (NULL);
