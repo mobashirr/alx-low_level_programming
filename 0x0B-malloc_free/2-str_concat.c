@@ -24,7 +24,7 @@ if (s2 == NULL)
 
 
 len = strlen(s1) + strlen(s2) + 1;
-char *A = (char *)malloc(len);
+A = (char *)malloc(len);
 
 if (A == NULL)
 	return (NULL);
