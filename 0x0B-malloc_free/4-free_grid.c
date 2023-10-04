@@ -19,5 +19,5 @@ free(grid[a]);
 ++a;
 }
 
-
+free(grid);
 }
