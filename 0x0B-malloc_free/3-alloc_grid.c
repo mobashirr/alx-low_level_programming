@@ -21,12 +21,15 @@ if (arr == NULL)
 free(arr);
 return (NULL);
 }
+
 while (a < height)
 {
 arr[a] = (int *)malloc(width * sizeof(int));
 if (arr[a] == NULL)
 {
-free(arr[a]);
+a = 0;
+while (a < height){
+free(arr[a]); ++a; }
 free(arr);
 return (NULL);
 }
