@@ -18,7 +18,7 @@ return(NULL);
 }
 
 
-arr = malloc(sizeof(int ) * height);
+arr = malloc(sizeof(*arr ) * height);
 
 if (arr == NULL)
 return (NULL);
