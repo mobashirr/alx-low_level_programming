@@ -32,7 +32,7 @@ char *_strdup(char *str)
 int a = length(str);
 char *A;
 
-if (str[0] == NULL)
+if (str == NULL)
 {
 	return (NULL);
 }
