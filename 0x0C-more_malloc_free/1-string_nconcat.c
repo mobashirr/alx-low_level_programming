@@ -30,7 +30,10 @@ while (len2 != n)
 	con = malloc(len);
 
 	if (con == NULL)
+	{
+	free(con);
 	return (NULL);
+	}
 
 strcpy(con, s1);
 strcat(con, str2);

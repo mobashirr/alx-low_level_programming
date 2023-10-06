@@ -13,7 +13,7 @@ void *mem = malloc(b);
 
 if (mem == NULL)
 {
-
+	free(mem);
 	exit(98);
 }
 
