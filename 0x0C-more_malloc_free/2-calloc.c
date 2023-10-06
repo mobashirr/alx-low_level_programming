@@ -11,7 +11,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 char *arr;
 unsigned int zer = 0;
-
+void *hand_void;
 
 if (size == 0 || nmemb == 0)
 {
@@ -25,13 +25,14 @@ if (size == 0 || nmemb == 0)
 	free(arr);
 	return (NULL);
 	}
-
 		while (nmemb > zer)
 		{
 			arr[zer] = 0;
 			++zer;
 		}
 
-return (arr);
+		hand_void = arr;
+
+return (hand_void);
 
 }
