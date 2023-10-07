@@ -35,7 +35,7 @@ n = len2;
 	free(con);
 	return (NULL);
 	}
-con[len] = '\0';
+con[len + 1] = '\0';
 
 strcpy(con, s1);
 strncat(con, s2, n);
