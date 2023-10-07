@@ -29,7 +29,7 @@ if (ptr == NULL && new_size != 0)
 
 	if (reallo == NULL)
 		return (NULL);
-
+	memcpy(reallo, ptr, new_size);
 	return (reallo);
 }
 
@@ -38,7 +38,7 @@ if (ptr == NULL && new_size != 0)
 
 	if (reallo == NULL)
 	{
-		free(reallo);
+		free(ptr);
 		return (NULL);
 	}
 
