@@ -28,10 +28,10 @@ if (ptr == NULL)
 
 if (new_size == 0)
 {
-	free(ptr);
+
 	return (NULL);
 }
-	
+
 }
 
 
@@ -39,7 +39,6 @@ if (new_size == 0)
 
 	if (reallo == NULL)
 	{
-		free(reallo);
 		return (NULL);
 	}
 
