@@ -35,7 +35,7 @@ if (new_size == 0 && ptr != NULL)
 
 	strncpy(reallo, ptr, new_size);
 
-	if (ptr =! NULL) 
+	if (ptr != NULL) 
 	{
 	free(ptr);
 	}
