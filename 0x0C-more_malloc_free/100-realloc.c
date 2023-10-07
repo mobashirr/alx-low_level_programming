@@ -10,9 +10,7 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-void **hand_void;
-char *reallo;
-int count = 0;
+void *reallo;
 
 if (old_size == new_size)
 {
@@ -32,17 +30,10 @@ if (new_size == 0 && ptr != NULL)
 		return (NULL);
 	}
 
-		hand_void = reallo;
-
-		while (count < old_size)
-		{
-		char *hand1 = (char *)ptr;
-
-		reallo[count] = hand1[count];
-		++count;
-		}
 
 
-return (hand_void);
+strncpy(reallo,ptr,new_size);
+
+return (reallo);
 
 }
