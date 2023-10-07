@@ -22,7 +22,6 @@ if (size == 0 || nmemb == 0)
 
 	if (arr == NULL)
 	{
-	free(arr);
 	return (NULL);
 	}
 		while (nmemb > zer)
@@ -31,7 +30,7 @@ if (size == 0 || nmemb == 0)
 			++zer;
 		}
 
-		hand_void = arr;
+		hand_void = (char*)arr;
 
 return (hand_void);
 
