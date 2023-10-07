@@ -29,7 +29,7 @@ while (ptr == NULL)
 if (new_size == 0)
 {
 	free(ptr);
-	return (NULL)
+	return (NULL);
 }
 	
 }
