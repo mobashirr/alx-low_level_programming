@@ -9,9 +9,7 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-char *arr;
-unsigned int zer = 0;
-void *hand_void;
+void *arr;
 
 if (size == 0 || nmemb == 0)
 {
@@ -24,14 +22,8 @@ if (size == 0 || nmemb == 0)
 	{
 	return (NULL);
 	}
-		while (nmemb > zer)
-		{
-			arr[zer] = 0;
-			++zer;
-		}
 
-		hand_void = (char*)arr;
+	memset(arr, 0, nmemb * size);
 
-return (hand_void);
-
+return (arr);
 }
