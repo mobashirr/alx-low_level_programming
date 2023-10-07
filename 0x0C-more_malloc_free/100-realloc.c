@@ -32,7 +32,7 @@ if (new_size == 0 && ptr != NULL)
 
 
 
-strncpy(reallo,ptr,new_size);
+strncpy(reallo, ptr, new_size);
 
 return (reallo);
 
