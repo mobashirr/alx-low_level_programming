@@ -33,7 +33,7 @@ if (new_size == 0 && ptr != NULL)
 	}
 
 
-	strncpy(reallo, ptr, new_size + 1);
+	memcpy(reallo, ptr, (old_size < new_size) ? old_size : new_size);
 
 	if (ptr != NULL) 
 	{
