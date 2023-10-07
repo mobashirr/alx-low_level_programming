@@ -30,7 +30,7 @@ if (new_size == 0)
 {
 	free(ptr);
 	return (NULL);
-}	
+}
 
 }
 
