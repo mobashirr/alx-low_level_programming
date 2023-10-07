@@ -7,35 +7,43 @@
  *@new_size: size to be reallocated ptr for.
  *Return: void pointer
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size) {
-    if (old_size == new_size) {
-        return ptr;
-    }
 
-    if (new_size == 0 && ptr != NULL) {
-        free(ptr);
-        return NULL;
-    }
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+void *reallo;
 
-    if (ptr == NULL && new_size != 0) {
-        void *reallo = malloc(new_size);
+if (old_size == new_size)
+{
+	return (ptr);
+}
 
-        if (reallo == NULL) {
-            return NULL;
-        }
+if (new_size == 0 && ptr != NULL)
+{
+	free(ptr);
+	return (NULL);
+}
 
-        return reallo;
-    }
+while (ptr == NULL)
+{
 
-    void *reallo = malloc(new_size);
+if (new_size == 0)
+{
+	free(ptr);
+	return (NULL);
+}
+	
+}
 
-    if (reallo == NULL) {
-        free(ptr);
-        return NULL;
-    }
 
-    memcpy(reallo, ptr, (old_size < new_size) ? old_size : new_size);
-    free(ptr);
+	reallo = malloc(new_size);
 
-    return reallo;
+	if (reallo == NULL)
+	{
+		return (NULL);
+	}
+
+strncpy(reallo, ptr, new_size);
+
+return (reallo);
+
 }
