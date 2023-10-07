@@ -11,9 +11,9 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 char *con;
-unsigned int len;
-unsigned int len1;
-unsigned int len2;
+unsigned int len = 0;
+unsigned int len1 = 0;
+unsigned int len2 = 0;
 
 if (s1 == NULL)
 	s1 = "";
@@ -35,7 +35,6 @@ n = len2;
 	return (NULL);
 	}
 
-con[len] = '\0';
 
 strcpy(con, s1);
 strncat(con, s2, n);
