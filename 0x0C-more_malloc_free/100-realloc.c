@@ -23,7 +23,7 @@ if (new_size == 0 && ptr != NULL)
 	return (NULL);
 }
 
-while (ptr == NULL)
+if (ptr == NULL)
 {
 
 if (new_size == 0)
@@ -39,6 +39,7 @@ if (new_size == 0)
 
 	if (reallo == NULL)
 	{
+		free(reallo);
 		return (NULL);
 	}
 
