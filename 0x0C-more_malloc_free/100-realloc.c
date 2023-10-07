@@ -44,7 +44,7 @@ if (ptr == NULL && new_size != 0)
 
 
 
-		memset(reallo, ptr, new_size);
+		memcpy(reallo, ptr, new_size);
 		free(ptr);
 
 		return (reallo);
