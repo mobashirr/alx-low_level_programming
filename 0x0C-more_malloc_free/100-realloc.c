@@ -23,15 +23,14 @@ if (new_size == 0 && ptr != NULL)
 	return (NULL);
 }
 
-if (ptr == NULL)
+if (ptr == NULL && new_size != 0)
 {
+	reallo = malloc(new_size);
 
-if (new_size == 0)
-{
+	if (reallo == NULL)
+		return (NULL);
 
-	return (NULL);
-}
-
+	return (reallo);
 }
 
 
