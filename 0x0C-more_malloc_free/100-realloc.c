@@ -23,6 +23,18 @@ if (new_size == 0 && ptr != NULL)
 	return (NULL);
 }
 
+while (ptr == NULL)
+{
+
+if (new_size == 0)
+{
+	free(ptr);
+	return (NULL)
+}
+	
+}
+
+
 	reallo = malloc(new_size);
 
 	if (reallo == NULL)
