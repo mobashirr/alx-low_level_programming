@@ -33,7 +33,7 @@ if (new_size == 0 && ptr != NULL)
 	}
 
 
-	strncpy(reallo, ptr, new_size);
+	strncpy(reallo, ptr, new_size + 1);
 
 	if (ptr != NULL) 
 	{
