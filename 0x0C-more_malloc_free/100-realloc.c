@@ -38,6 +38,7 @@ if (ptr == NULL && new_size != 0)
 
 	if (reallo == NULL)
 	{
+		free(reallo);
 		return (NULL);
 	}
 
