@@ -44,8 +44,9 @@ if (ptr == NULL && new_size != 0)
 
 
 
-strncpy(reallo, ptr, new_size);
+		memset(reallo, ptr, new_size);
+		free(ptr);
 
-return (reallo);
+		return (reallo);
 
 }
