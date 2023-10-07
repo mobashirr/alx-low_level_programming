@@ -39,15 +39,3 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size) {
 
     return reallo;
 }
-
-int main() {
-    int *arr = malloc(5 * sizeof(int));
-    printf("Old address: %p\n", arr);
-
-    int *new_arr = _realloc(arr, 5 * sizeof(int), 10 * sizeof(int));
-    printf("New address: %p\n", new_arr);
-
-    free(new_arr);
-
-    return 0;
-}
