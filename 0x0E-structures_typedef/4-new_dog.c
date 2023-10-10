@@ -26,15 +26,14 @@ p->owner = strdup(owner);
 if (p->name == NULL || p->owner == NULL)
 {
 if (p->name)
-free(p->name); 
-  
-if (p->owner) 
+free(p->name);
+if (p->owner)
 free(p->owner);
 
+if (p->owner && p->name)
 free(p);
 return (NULL);
 }
-
 p->age = age;
 
 return (p);
