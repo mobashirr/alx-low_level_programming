@@ -23,10 +23,14 @@ return (NULL);
 p->name = strdup(name);
 p->owner = strdup(owner);
 
-if (p->name == NULL && p->owner == NULL)
+if (p->name == NULL || p->owner == NULL)
 {
-free(p->name);
-free(p->owner);
+if (p->name = NULL)
+free(p->name); 
+  
+if (p->owner = NULL) 
+free(p->owner); 
+
 free(p);
 return (NULL);
 }
