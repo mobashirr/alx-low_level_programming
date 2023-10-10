@@ -17,6 +17,7 @@ p = (dog_t *)malloc(sizeof(dog_t));
 
 if (p == NULL)
 {
+free(p);
 return (NULL);
 }
 
@@ -30,8 +31,6 @@ free(p->name);
 if (p->owner)
 free(p->owner);
 
-if (p->owner && p->name)
-free(p);
 return (NULL);
 }
 p->age = age;
