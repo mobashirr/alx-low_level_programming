@@ -3,7 +3,7 @@
 
 /**
  * init_dog - a
- *@d
+ *@d: pointer
  *@name:name
  *@age: age
  *@owner: owner
