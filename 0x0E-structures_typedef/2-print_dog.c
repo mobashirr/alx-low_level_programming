@@ -17,15 +17,12 @@ printf("Age: %f\n", d->age);
 printf("Owner: %s\n", d->owner);
 
 
-	if (d->name == NULL)
+	if (d->name == NULL && d->owner == NULL))
 	{
 		free(d->name);
-	}
-
-	if (d->owner == NULL)
-	{
 		free(d->owner);
 	}
+
 }
 
 
