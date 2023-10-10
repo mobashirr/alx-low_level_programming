@@ -2,16 +2,18 @@
 #define DOG_H
 
 /**
- * dog - new strucure
- *
+ * struct dog - new strucure
+ *@name : name of the dog
+ *@age : age of the dog
+ *@owner: the owner of the dog
  */
 
 struct dog
 {
 
-char * name;
+char *name;
 float age;
-char * owner;
+char *owner;
 
 };
 
