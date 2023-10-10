@@ -30,7 +30,7 @@ if (p->name)
 free(p->name);
 if (p->owner)
 free(p->owner);
-
+free(p);
 return (NULL);
 }
 p->age = age;
