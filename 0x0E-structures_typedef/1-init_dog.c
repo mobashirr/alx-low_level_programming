@@ -1,6 +1,6 @@
 #include <string.h>
 #include "dog.h"
-
+#include <stdlib.h>
 /**
  * init_dog - a
  *@d: pointer
@@ -16,5 +16,6 @@ d->name = strdup(name);
 d->age = age;
 d->owner = strdup(owner);
 
-
+free(d->name);
+free(d->owner);
 }
