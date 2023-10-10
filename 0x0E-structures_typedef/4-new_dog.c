@@ -11,28 +11,27 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
+dog_t *p;
 
-	dog_t *p;
+p = (dog_t *)malloc(sizeof(dog_t));
 
+if (p == NULL)
+{
+return (NULL);
+}
 
-	p = (dog_t *)malloc(sizeof(dog_t));
+p->name = strdup(name);
+p->owner = strdup(owner);
 
-	if (p == NULL)
-	return (NULL);
+if (p->name == NULL || p->owner == NULL)
+{
+free(p->name);
+free(p->owner);
+free(p);
+return (NULL);
+}
 
-	p->name = strdup(name);
-	p->owner = strdup(owner);
-
-	if (p->name == NULL || p->owner == NULL)
-	{
-	free(p->name);
-	free(p->owner);
-	free(p);
-	return (NULL);
-	}
-
-	p->age = age;
-
+p->age = age;
 
 return (p);
 }
