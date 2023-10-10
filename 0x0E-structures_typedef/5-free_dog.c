@@ -2,7 +2,7 @@
 
 /**
  * free_dog - free dog_t struct
- *@d: pointer to 
+ *@d: pointer to dog struct.
  *
  */
 
