@@ -1,4 +1,4 @@
-#include <stelib.h>
+#include <stdio.h>
 
 /**
  * main - print file it compiled from
