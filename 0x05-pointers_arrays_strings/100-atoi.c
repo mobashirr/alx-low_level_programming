@@ -14,14 +14,19 @@ int check(char *st, int c, int a)
 {
 int con = 1;
 char f = '1';
-
+int ff = a - (c+1);
 
 while (st[c] != f  && st[c] != '\0')
  {
  ++f;
 ++con;
  }
+if (ff == 0)
+return (con);
 
+ con = con * pow(10, ff);
+ return (con);
+ 
  return(con);
 }
 
@@ -49,7 +54,7 @@ if(s[co] == '-')
 while (s[co] != '\0' )
 {
 conv = check(s, co, all);
-num = num * 10 + conv;
+num = num + conv;
 
 if(s[co - 1] == '-' && co - 1 == 0 )
 {
