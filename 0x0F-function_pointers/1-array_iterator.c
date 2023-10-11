@@ -10,16 +10,17 @@
 
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-size_t co = 0;
+	size_t co = 0;
 
-if (action != NULL)
-{
 
-	for (co = 0; size > co; co++)
+	if (action != NULL)
 	{
-			action(array[co]);
-	}
 
-}
+		for (co = 0; size > co; ++co)
+		{
+		action(array[co]);
+		}
+
+	}
 
 }
