@@ -10,7 +10,7 @@
 
 int int_index(int *array, int size, int (*cmp)(int))
 {
-	size_t co = 0;
+	int co = 0;
 	int result = 0;
 
 	if (size <= 0)
