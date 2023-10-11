@@ -17,7 +17,6 @@ if (action != NULL)
 
 	for (co = 0; size > co; co++)
 	{
-		if (array[co] != NULL)
 			action(array[co]);
 	}
 
