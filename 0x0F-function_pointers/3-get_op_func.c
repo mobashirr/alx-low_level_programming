@@ -1,8 +1,8 @@
 #include "calc.h"
 
 /**
- *
- *
+ *get_op_func - chose the op
+ *Return: pointer to func
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -16,13 +16,13 @@ op_t ops[]={
 };
 int i = 0;
 
-while (i < (sizeof(ops) / sizeof(ops[0])) && s = NULL)
+	while (i < 6)
 	{
-		if (*s == ops[i].op)
+		if (s[0] == *(ops[i].op))
 		{
-			i = ops[i].f(a,b);
-			return (i);
-		}	
+			return(ops[i].f);
+		}
+		++i;
 	}
 		return (NULL);
 }
