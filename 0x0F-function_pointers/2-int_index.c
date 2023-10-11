@@ -9,10 +9,12 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
+	int co;
+
 	if (size <= 0 || cmp == NULL)
 		return (-1);
 
-	for (int co = 0; co < size; ++co)
+	for (co = 0; co < size; ++co)
 	{
 		if (cmp(array[co]) != 0)
 			return (co);
