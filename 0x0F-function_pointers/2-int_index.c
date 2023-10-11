@@ -22,7 +22,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 		{
 		result = cmp(array[co]);
 
-		if (result == 1)
+		if (result != 0)
 		return (co);
 
 		++co;
