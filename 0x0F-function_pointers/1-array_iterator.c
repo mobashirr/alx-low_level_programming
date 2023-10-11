@@ -1,7 +1,7 @@
 #include "function_pointers.h"
 
 /**
- *array - call pointer to function for each elment of the array
+ *array_iterator - call pointer to function for each elment of the array
  *@array: the name of the array
  *@action: pointer to fun
  *@size: size of the array
@@ -15,9 +15,10 @@ size_t co = 0;
 if (action != NULL)
 {
 
-	for(co = 0; size > co; ++co)
+	for (co = 0; size > co; co++)
 	{
-		action(array[co]);
+		if (array[co] != NULL)
+			action(array[co]);
 	}
 
 }
