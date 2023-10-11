@@ -1,4 +1,4 @@
-#include "calc.h"
+#include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
 /**
@@ -27,7 +27,7 @@ num2 = atoi(argv[3]);
 
 res = get_op_func(argv[2]);
 
-if (res == NULL)
+if (res == NULL || strlen(argv[3]) != 1)
 {
 printf("Error\n");
 exit (99);
