@@ -12,7 +12,7 @@ return (a + b);
 }
 
 /**
- *op_sub - sutact
+ *op_sub - subtact
  *@a: num1
  *@b: num2
  *Return: a - b
@@ -30,18 +30,18 @@ return (a - b);
  */
 int op_mul(int a, int b)
 {
-	return (a * b);
+return (a * b);
 }
 
 /**
- *op_div
- *@a: num1
-  *@b: num2
- *Return: division a/b
- */
+*op_div
+*@a: num1
+*@b: num2
+*Return: division a/b
+*/
 int op_div(int a, int b)
 {
-	return (a / b);
+return (a / b);
 }
 
 /**
