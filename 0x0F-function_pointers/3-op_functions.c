@@ -8,7 +8,7 @@
  */
 int op_add(int a, int b)
 {
-return (a + b);	
+return (a + b);
 }
 
 /**
@@ -34,7 +34,7 @@ return (a * b);
 }
 
 /**
-*op_div
+*op_div - division op
 *@a: num1
 *@b: num2
 *Return: division a/b
