@@ -14,7 +14,7 @@ int check(char *st, int c, int a)
 {
 int con = 1;
 char f = '1';
-int ff = a - (c+1);
+
 
 while (st[c] != f  && st[c] != '\0')
  {
