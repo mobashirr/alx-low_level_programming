@@ -30,8 +30,8 @@ final = (get_op_func(argv[2])) (num1,num2);
 
 if (((*argv[2] != '+') &&
 (*argv[2] != '-') &&
-(argv[2] != '*') &&
-(*argv[2] != '%') ||
+(*argv[2] != '*') &&
+(*argv[2] != '%')) ||
 strlen(argv[3]) != 1)
 {
 printf("Error\n");
