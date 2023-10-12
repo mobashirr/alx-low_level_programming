@@ -8,9 +8,9 @@
 
 void print_all(const char * const format, ...)
 {
-const char* F = format;
+const char *F = format;
 va_list para;
-va_start(para,format);
+va_start(para, format);
 
 	while (*F)
 	{
@@ -28,12 +28,12 @@ va_start(para,format);
 			break;
 		case('s'):
 		printf("%s", va_arg(para, char*));
-			break;	
+			break;
 		default:
 		break;
 			}
 
-	if(*format && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
+	if (*format && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
 	{
 		printf(", "); }
 
