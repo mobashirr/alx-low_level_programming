@@ -1,6 +1,21 @@
 #include "variadic_functions.h"
 
 /**
+ *p_str - print string
+ *@s: string
+ *Return: int
+ */
+int p_str(char *s)
+{
+while (*s)
+{
+	printf("%s", s);
+	return (0);
+}
+printf("(nill)");
+return (0);
+}
+/**
  * print_all - print s i c f
  *@format: format specifer
  *Return: void
@@ -26,17 +41,16 @@ va_start(para, format);
 		case('f'):
 		printf("%f", va_arg(para, double));
 			break;
-		case('s'):
-		printf("%s", va_arg(para, char*));
-			break;
 		default:
-		break;
-			}
+		break;	}
+		if (*F == 's')
+		{
+			p_str(va_arg(para, char*));
+		}
 
-	if (*format && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
+	if (*(F + 1) && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
 	{
 		printf(", "); }
-
 		++F;
 	}
 	printf("\n");
