@@ -19,7 +19,7 @@ va_start(para, n);
 for (c = 0; c < (int)n; ++c)
 {
 	hand = va_arg(para, char*);
-	str  = (char*)hand =! NULL ? hand : "(nil)";
+	str  = (char *)hand != NULL ? hand : "(nil)";
 	printf("%s", str);
 
 	if (separator != NULL && (c + 1) != (int)n)
