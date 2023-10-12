@@ -51,7 +51,7 @@ va_start(para, format);
 	if (*F && *(F + 1) && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
 	{
 		printf(", ");	}
-			++F;
+			F++;
 	}
 	printf("\n");
 	va_end(para);
