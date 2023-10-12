@@ -7,13 +7,12 @@
  */
 int p_str(char *s)
 {
-while (s != NULL)
+while (s == NULL)
 {
-	char *out = s;
-	printf("%s", out);
+	printf("(nill)");
 	return (0);
 }
-printf("(nill)");
+printf("%s", s);
 return (0);
 }
 /**
@@ -25,6 +24,7 @@ return (0);
 void print_all(const char * const format, ...)
 {
 const char *F = format;
+char *cost;
 va_list para;
 va_start(para, format);
 
@@ -43,13 +43,13 @@ va_start(para, format);
 		printf("%f", va_arg(para, double));
 			break;
 		case('s'):
-		p_str(va_arg(para, char*));
+		cost = va_arg(para, char*);
+			p_str(cost);
 		default:
 		break;	}
 
-	if (*F && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
+	if (*F && *(F + 1) && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
 	{
-		if (*(F + 1))
 		printf(", ");	}
 			++F;
 	}
