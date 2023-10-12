@@ -36,7 +36,7 @@ va_start(para, format);
 		printf("%c", va_arg(para, int));
 			break;
 		case('i'):
-		printf("%i", va_arg(para, int));
+		printf("%d", va_arg(para, int));
 			break;
 		case('f'):
 		printf("%f", va_arg(para, double));
@@ -51,10 +51,8 @@ va_start(para, format);
 	if (*(F + 1) && (*F == 'i' || *F == 'c' || *F == 's' || *F == 'f'))
 	{
 		printf(", "); }
-		++F;
+			++F;
 	}
 	printf("\n");
-
-va_end(para);
-
+	va_end(para);
 }
