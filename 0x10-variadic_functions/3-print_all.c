@@ -45,6 +45,7 @@ va_start(para, format);
 		case('s'):
 		cost = va_arg(para, char*);
 			p_str(cost);
+break;
 		default:
 		break;	}
 
