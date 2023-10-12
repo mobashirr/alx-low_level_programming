@@ -7,7 +7,7 @@
  */
 int p_str(char *s)
 {
-if (s == NULL || *s == NULL)
+if (!s)
 {
 	printf("(nill)");
 	return (0);
