@@ -14,15 +14,16 @@ int s = 0;
 va_list para;
 va_start(para, n);
 
-if (n == 0)
+	if ((int)n == 0)
 	return (0);
 
-	while (n > s)
+	while(n > (unsigned int)s )
 	{
 	result = result + va_arg(para, int);
 		++s;
 	}
-	va_end para;
+
+
 
 			return (result);
 }
