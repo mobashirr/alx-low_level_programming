@@ -28,7 +28,7 @@ char *cost;
 va_list para;
 va_start(para, format);
 
-	while (*F)
+	while (F && *F)
 	{
 
 	switch (*F)
