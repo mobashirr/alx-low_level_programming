@@ -9,7 +9,8 @@ int p_str(char *s)
 {
 while (s != NULL)
 {
-	printf("%s", s);
+	char *out = s;
+	printf("%s", out);
 	return (0);
 }
 printf("(nill)");
