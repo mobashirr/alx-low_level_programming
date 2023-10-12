@@ -7,7 +7,7 @@
  */
 int p_str(char *s)
 {
-while (*s)
+while (s != NULL)
 {
 	printf("%s", s);
 	return (0);
