@@ -23,7 +23,7 @@ free(node);
 return NULL;
 }
 
-node->len = _strlen(str);
+node->len = strlen(str);
 if (!node->len)
 {
 free(node);
