@@ -13,21 +13,21 @@ list_t *node;
 node = malloc(sizeof(list_t));
 if (!node)
 {
- return (NULL);
+return (NULL);
 }
 
 node->str = strdup(str);
 if (!node->str)
 {
 free(node);
-return NULL;
+return (NULL);
 }
 
 node->len = strlen(str);
 if (!node->len)
 {
 free(node);
-return NULL;
+return (NULL);
 }
 
 node->next = *head;
