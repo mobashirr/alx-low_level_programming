@@ -7,10 +7,10 @@
 */
 size_t print_listint(const listint_t *h)
 {
-size_t count = 0;
+int count = 0;
 
 	if (h == NULL)
-	return (count);
+	return ((size_t)count);
 
 	while (h)
 	{
@@ -22,5 +22,5 @@ size_t count = 0;
 		break;
 
 	}
-	return (count);
+	return ((size_t)count);
 }
