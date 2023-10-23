@@ -12,9 +12,10 @@ size_t count = 0;
 	if (!h)
 	return (count);
 
-	while (h->next)
+	while (h)
 	{
 	printf("%d\n", h->n);
+	if (h->next != NULL)
 	h = h->next;
 	count++;
 	}
