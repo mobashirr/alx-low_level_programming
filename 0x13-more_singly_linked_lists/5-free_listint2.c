@@ -10,7 +10,7 @@ void free_listint2(listint_t **head)
 listint_t *next, *cur;    /*set pointer as temp*/
 
 	if (!*head)
-		return (NULL);
+		exit(98);
 
 	while (*head)             /*we can derefrense between ptr to ptr to struct*/
 	{
