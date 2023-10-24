@@ -21,26 +21,31 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (!node)
 	return (NULL);
 	node->n = n;
-
+	next = NULL;
 	cur = *head;
-	for (i = 0; (i + 1) != idx; i++)
+	for (i = 0; cur && (i + 1) != idx; i++)
 	{	/*we want to reach the elment before  number idx*/
 		if (cur->next)
 		cur = cur->next;
 		else
 		break;
 	}
+
 	if ((i + 1) == idx)
 	{
-		next = cur->next;
-		cur->next = node;
-		node->next = next;
+		next = cur->next;	/*save the next node*/
+		cur->next = node;	/*put the new node at the position*/
+		node->next = next;	/*link the node*/
+		if (node->next)
 		return (node);
+		else
+		return (NULL);
 	}
 	else if (idx == 0)
 	{
 	node->next = *head;
 	*head = node;
 	return (node); }
+
 	return (NULL);
 }
