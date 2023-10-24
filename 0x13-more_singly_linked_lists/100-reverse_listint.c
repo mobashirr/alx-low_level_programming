@@ -1,28 +1,25 @@
-#include "lists.h"
+#include <stdio.h>
 
-/**
- * reverse_listint - reverse linked list
- * @head: ptr to ptr to struct
- * 
-*/
-listint_t *reverse_listint(listint_t **head)
-{
+/* Definition for singly-linked list */
+struct listint_s {
+    int n;
+    struct listint_s *next;
+};
+
+typedef struct listint_s listint_t;
+
+listint_t *reverse_listint(listint_t **head) {
     listint_t *prev = NULL;
     listint_t *current = *head;
-    listint_t *next = NULL;
-
-    while (current != NULL)
-    {
-        next = current->next; /* Save the next node*/
-        current->next = prev; /*Change the current node's next to the previous node*/ 
-
-        /* Move forward in the list*/
+    
+    while (current != NULL) {
+        listint_t *next = current->next;
+        current->next = prev;
         prev = current;
         current = next;
     }
-
-    /* Update the head to point to the new first node (formerly the last node) */
-    *head = prev;
-
+    
+    *head = prev; /* Update the head to point to the new first node (prev) */
+    
     return *head;
 }
