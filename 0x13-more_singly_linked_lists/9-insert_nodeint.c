@@ -36,10 +36,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		next = cur->next;	/*save the next node*/
 		cur->next = node;	/*put the new node at the position*/
 		node->next = next;	/*link the node*/
-		if (node->next)
 		return (node);
-		else
-		return (NULL);
 	}
 	else if (idx == 0)
 	{
