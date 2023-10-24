@@ -1,13 +1,16 @@
 #include "lists.h"
 
 /**
- * everse_listint - reverse linked list content
+ * reverse_listint - reverse linked list content
  * @head: linked list
  * Return: new head of the reversed list
 */
 listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *prev = NULL, *next = *head;
+
+	if (!*head)
+	return (NULL);
 
 	while (*head)
 	{
@@ -19,5 +22,5 @@ listint_t *reverse_listint(listint_t **head)
 	}
 
 	*head = prev;
-	return *head;
+	return (*head);
 }
