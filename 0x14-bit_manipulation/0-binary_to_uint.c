@@ -10,13 +10,14 @@ unsigned int binary_to_uint(const char *b)
 int i, sum = 0, han, base = 1;
 
 	if (!b)
-	return (1);
+	return (0);
 
 	for (i = 0; b[i] != '\0'; i++)		/*calculate length of number*/
 	{
 		if (b[i] != '0' && b[i] != '1')		/*check if invaild number*/
 		return (0);
 	}
+
 	/*set at the end of the number*/
 		i--;
 
@@ -29,4 +30,3 @@ int i, sum = 0, han, base = 1;
 	}
 		return (sum);
 }
-
