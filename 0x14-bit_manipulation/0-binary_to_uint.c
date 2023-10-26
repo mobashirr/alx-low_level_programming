@@ -10,7 +10,7 @@ unsigned int binary_to_uint(const char *b)
 int i, sum = 0, han, base = 1;
 
 	if (!b)
-	return (0);
+	return (1);
 
 	for (i = 0; b[i] != '\0'; i++)		/*calculate length of number*/
 	{
