@@ -13,7 +13,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 
 /*we use & because it doesn't change 0 to 1 and 1 still be 1 this case*/
 /*the only change will be at index that will always be 0*/
-	*n = *n & 1 << index; /*this way only index will be changed*/
+	*n = *n & ~(1 << index); /*this way only index will be changed*/
 	return (1);
 
 }
