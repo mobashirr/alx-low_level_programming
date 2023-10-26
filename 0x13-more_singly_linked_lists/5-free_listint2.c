@@ -7,22 +7,24 @@
 */
 void free_listint2(listint_t **head)
 {
+listint_t *next;    /*set pointer as temp*/
 
-listint_t *next, *cur;    /*set pointer as temp*/
+	if (!head)
+		return;
 
 	while (*head)             /*we can derefrense between ptr to ptr to struct*/
 	{
 		if ((*head)->next)      /*head is ptr to ptr to struct */
 		{
-			next = (*head)->next;     /*this way derefrense work*/
-			cur = *head;			/*save the curent address to free it*/
-			*head = next;            /*go to the next node*/
-			free(cur);             /* free the current node */
+			next = (*head)->next;    /*this way derefrense work*/
+			free(*head);			/*free the current node*/
+			*head = next;           /*go to the next node*/
+
 		}
 		else
 		{
 			free(*head);
 			break; }
-		}
+	}
 		*head = NULL;
 }
