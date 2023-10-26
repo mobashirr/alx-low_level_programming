@@ -10,14 +10,15 @@ unsigned int binary_to_uint(const char *b)
 int i, sum = 0, han, base = 1;
 
 	if (!b)
-	return(0);
+	return (0);
 
 	for (i = 0; b[i] != '\0'; i++)		/*calculate length of number*/
 	{
 		if (b[i] != '0' && b[i] != '1')		/*check if invaild number*/
 		return (0);
 	}
- 	i--;	/*set at the end of the number*/
+	/*set at the end of the number*/
+		i--;
 
 	while (b[i] != '\0')
 	{
@@ -26,6 +27,6 @@ int i, sum = 0, han, base = 1;
 		base *= 2;				/*we convert the number by multiply by its value*/
 		i--;
 	}
- 	return(sum);
+		return (sum);
 }
 
