@@ -11,7 +11,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	int i = 0;
 	while (i < argc)
 	{
-		printf("please give me some points on this task");
+		printf("please give me some points on this task\n %s",argv[i]);
 		++i;
 	}
 	return (0);
