@@ -12,6 +12,9 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 
 
+char *create_buffer(char *file);
+void close_file(int fd);
+
 size_t len_found(char *st);
 
 #endif
