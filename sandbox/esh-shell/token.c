@@ -9,7 +9,7 @@ char **token(char *arr)
 {
     int i = 0;
     char **result = NULL;
-    char *token;
+    char *token, **temp;
 
     result = (char **)malloc(sizeof(char *));
     if (!result) {
@@ -29,7 +29,7 @@ char **token(char *arr)
         strcpy(result[i], token);
         i++;
 
-        char **temp = (char **)realloc(result, (i + 1) * sizeof(char *));
+       temp = (char **)realloc(result, (i + 1) * sizeof(char *));
         if (!temp) {
             perror("realloc");
             return NULL;
