@@ -7,8 +7,9 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <sys/stat.h>
 
-int execute(char *command[]);
+int execute(char *command[],char *env[]);
 char **token(char *arr);
 void free_command(char **arr);
 
