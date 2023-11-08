@@ -23,6 +23,7 @@ int execute(char *command[], char *env[])
 		{
 			if (execve(full_path, command, env) == -1)
 			{
+				free(full_path);
 				perror("execve");
 				exit(2);
 			}

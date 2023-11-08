@@ -7,9 +7,12 @@
 */
 int changedir(char *command[])
 {
+	if(!command[1])
+	return(0);
+
 	if (chdir(command[1]) == -1)
 	{
-		perror("cd");
+		fprintf(stderr, "bash: %s: %s: No such file or directory\n",command[0], command[1]);
 		return(-1);
 	}
 	return(0);
@@ -23,7 +26,7 @@ int changedir(char *command[])
 int exit_program(char *command[])
 {
        if (command[1])
-                exit(atoi(command[1]));
+        	exit(atoi(command[1]));
         exit(0);
 
 	return(-1);

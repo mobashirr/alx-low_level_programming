@@ -12,7 +12,11 @@ void* _realloc(void* array, size_t* size, size_t new_size)
 	size_t i;
 
 	if (!array || !size)
-        	return NULL;
+	{
+		if(array)
+		free(array);
+        	return (NULL);
+	}
 
 	if (new_size <= *size)
         	return array;

@@ -20,10 +20,11 @@ char *_getenv(char *name, char *env[])
 	}
 	if(strcmp(token, name) == 0)
 	{
-		/* free(token); */
 		return(strtok(NULL,"="));	
 	}
+	if(token)
 	free(token);
+
 	return (NULL);
 }
 /**
@@ -44,7 +45,7 @@ char *getpath(const char *name, char *env[])
 	if(stat(name,&st) == 0)
 	return((char *)name);
 
-	token = strtok(strdup(pathenv), delim);
+	token = strtok(pathenv, delim);
 	while (token)
 	{
 		full_path = (char *)malloc(strlen(token) + 1 + strlen(name) + 1);
