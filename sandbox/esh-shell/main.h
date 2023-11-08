@@ -9,8 +9,14 @@
 #include <string.h>
 #include <sys/stat.h>
 
-int execute(char *command[],char *env[]);
-char **token(char *arr);
-void free_command(char **arr);
+int control(char *command_token[], char *env[]);
+int execute(char *command[], char *env[]);
+
+char **token(char *);
+void free_command(char **);
+void* _realloc(void* array, size_t* size, size_t new_size);
+
+int excute_builtin(char *command[]);
+int which_builtin(char *command[]);
 
 #endif

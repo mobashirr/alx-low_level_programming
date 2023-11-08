@@ -1,45 +1,47 @@
 #include "main.h"
 
 /**
- * token
- * @arr
- * Return:
+ * token - tokenaiz string which is the input to the shell
+ * @str: string that will be tokenaized
+ * Return: array of string
 */
-char **token(char *arr)
+char **token(char *str)
 {
-    int i = 0;
-    char **result = NULL;
-    char *token, **temp;
+	int i = 0;
+	size_t old, new;
+	char *token;
+	char **result = NULL;
 
-    result = (char **)malloc(sizeof(char *));
-    if (!result) {
-        perror("malloc");
-        return NULL;
-    }
+	result = (char **)malloc(sizeof(char * ) * 2); 
+	if(!result)
+	{
+        	perror("malloc");
+        	return (NULL);
+	}
 
-    token = strtok(arr, " \n\t");
+    token = strtok(str, " \n\t\"\"");
 
-    while (token) {
-        result[i] = (char *)malloc(strlen(token) + 1);
-        if (!result[i]) {
-            perror("malloc");
-            return NULL;
-        }
+	while (token) 
+	{
+        	result[i] = strdup(token); 
+        	if (!result[i])
+		{
+           		perror("malloc");
+           		return NULL;
+        	}
 
-        strcpy(result[i], token);
-        i++;
+        	i++;
+		old = sizeof(char *) * (i + 1);
+		new = sizeof(char *) * (i + 2);
+		result = (char **)_realloc(result,&old,new);
+		if (!result) 
+		{
+        		perror("realloc");
+            		return (NULL);
+        	}
+		token = strtok(NULL, " \n\t\"\"");
+	}
+	result[i] = NULL;
 
-       temp = (char **)realloc(result, (i + 1) * sizeof(char *));
-        if (!temp) {
-            perror("realloc");
-            return NULL;
-        }
-        result = temp;
-
-        token = strtok(NULL, " \n\t");
-    }
-
-    result[i] = NULL;
-
-    return result;
+	return (result);
 }

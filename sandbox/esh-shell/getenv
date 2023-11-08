@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <sys/stat.h>
+
+extern char **environ;
+
+/**
+ * 
+ * 
+ * 
+*/
+char *_getenv(const char *name)
+{
+	int i = 0;
+	char **env = environ;
+	char *token = NULL,**result;
+
+	 result = (char **)malloc(sizeof(char *));
+    if (!result) {
+        perror("malloc");
+        return NULL;
+    }
+
+printf("\n%s",name);
+	while (env)
+	{
+		token = strtok(env[i],"=");
+		if(token == name)
+		break;
+		free(token);
+		++i;
+	}
+	if(token == name)
+	{
+	token = strtok(NULL,"=");
+	return(token);	}
+
+	return (NULL);
+}
+
+int main()
+{
+	char *name = "OLDPWD";
+	char *result = NULL;
+	printf("%s",name);
+
+	result = _getenv(name);
+	if(result)
+	printf("%s",result);
+
+	return(0);
+}
