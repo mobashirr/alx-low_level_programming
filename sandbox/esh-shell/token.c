@@ -19,13 +19,14 @@ char **token(char *str)
         	return (NULL);
 	}
 
-    token = strtok(str, " \n\t\"\"");
+    token = strtok(str, " \n\t");
 
 	while (token) 
 	{
         	result[i] = strdup(token); 
         	if (!result[i])
 		{
+			free_command(result);
            		perror("malloc");
            		return NULL;
         	}
@@ -36,6 +37,7 @@ char **token(char *str)
 		result = (char **)_realloc(result,&old,new);
 		if (!result) 
 		{
+			free_command(result);
         		perror("realloc");
             		return (NULL);
         	}

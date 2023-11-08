@@ -1,4 +1,5 @@
 #include "main.h"
+#include "main.h"
 
 /**
  * main - entry point
@@ -11,27 +12,27 @@ int main(int argc, char *argv[], char *env[])
 {
 	char *arr = NULL;
 	size_t co = 0;
-	const char prom[9] = "sozoia $ ";
+	char prom[5] = " ($) ";
 	char **command_token = NULL;
-	int status;
 
 	(void)argc;
 	(void)argv;
 	while (1) 
 	{
 		if(isatty(STDIN_FILENO) != 0)
-			write(1,&prom,8);
+			write(1,&prom,5);
 
 		if (getline(&arr, &co, stdin) == -1)
-		break;
+		{
+			if(arr)
+			free(arr);
+			exit (0);
+		}
 
 		command_token = token(arr);
 		if (command_token) 
 		{
-			status = control(command_token,env);
-			if(status != 320)
-			break;
-
+			control(command_token,env);
 			free_command(command_token);
 			free(arr);
 		}
@@ -39,20 +40,6 @@ int main(int argc, char *argv[], char *env[])
 			free(arr);
 
 		arr = NULL;
-	}
-
-	switch (status)
-	{
-	case(0):
-		exit(0);
-	case(1):
-		exit(1);
-	case(2):
-		exit(2);
-	case(127):
-		exit(127);
-	default:
-		break;
 	}
 		return (0);
 }

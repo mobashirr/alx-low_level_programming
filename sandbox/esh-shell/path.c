@@ -20,10 +20,9 @@ char *_getenv(char *name, char *env[])
 	}
 	if(strcmp(token, name) == 0)
 	{
-		/* free(token); */
 		return(strtok(NULL,"="));	
 	}
-	free(token);
+
 	return (NULL);
 }
 /**
@@ -31,7 +30,7 @@ char *_getenv(char *name, char *env[])
  * @name: name of the program
  * Return: string contain the full path if success else NULL
 */
-char *getpath(char *name, char *env[]) 
+char *getpath(const char *name, char *env[]) 
 {
 	char *pathenv = _getenv("PATH", env);
 	struct stat st;
@@ -42,9 +41,9 @@ char *getpath(char *name, char *env[])
         return NULL;
 
 	if(stat(name,&st) == 0)
-	return(name);
+	return((char *)name);
 
-	token = strtok(strdup(pathenv), delim);
+	token = strtok(pathenv, delim);
 	while (token)
 	{
 		full_path = (char *)malloc(strlen(token) + 1 + strlen(name) + 1);
