@@ -11,26 +11,27 @@ int execute(char *command[], char *env[])
 {
 	pid_t id;
 	struct stat st;
-	char *path;
+	char *full_path;
 	if (!(command[0]))
 		return (0);
 
 	id = fork();
 	if (id == 0)
 	{
-		path = getpath(command[0], env);
-		if (stat(path, &st) != -1 || !*command)	/*stat return -1  if the program doesn't exist*/
+		full_path = getpath(command[0], env);
+		if (stat(full_path, &st) != -1 || !*command)	/*stat return -1  if the program doesn't exist*/
 		{
-			if (execve(path, command, env) == -1)
+			if (execve(full_path, command, env) == -1)
 			{
 				perror("execve");
-				exit(EXIT_FAILURE);
+				exit(2);
 			}
+			exit(126);
 		}
-		perror("execve");
-		exit(0);
+		fprintf(stderr, "./%s: 1: %s: not found\n", "hsh", command[0]);
+			exit(127);
 	}
-	else if (id > 0)
+	else if (id != 0)
 	{
 		wait(&id);
 		if (stat(command[0], &st) != -1)

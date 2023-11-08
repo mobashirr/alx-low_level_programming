@@ -7,6 +7,15 @@
  * @env: array of string contain the enviroment variables
  * Return: 0 if the command excuted seccessfully else return -1
 */
+#include "main.h"
+
+/**
+ * control - this function responsible of what will be the next step
+ *  after entering the command.
+ * @command_token: is an array of string contain command after tokenization.
+ * @env: array of string contain the enviroment variables
+ * Return: 0 if the command excuted seccessfully else return -1
+*/
 int control(char *command_token[],char *env[])
 {
 	int bu = -1;
@@ -25,7 +34,7 @@ int control(char *command_token[],char *env[])
 		ex = execute(command_token, env);
 
 	if (ex == -1)
-		return (-1);
+		return -1;
 
 	return 0;
 }

@@ -1,4 +1,5 @@
 #include "main.h"
+#include "main.h"
 
 /**
  * main - entry point
@@ -11,7 +12,7 @@ int main(int argc, char *argv[], char *env[])
 {
 	char *arr = NULL;
 	size_t co = 0;
-	char prom[8] = "sozoia $ ";
+	char prom[5] = " ($) ";
 	char **command_token = NULL;
 
 	(void)argc;
@@ -19,7 +20,7 @@ int main(int argc, char *argv[], char *env[])
 	while (1) 
 	{
 		if(isatty(STDIN_FILENO) != 0)
-			write(1,&prom,8);
+			write(1,&prom,5);
 
 		if (getline(&arr, &co, stdin) == -1)
 			exit (0);

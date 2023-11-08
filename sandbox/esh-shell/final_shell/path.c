@@ -67,7 +67,6 @@ char *getpath(const char *name, char *env[])
 		free(full_path);
 		token = strtok(NULL, delim);
 	}
-	printf("out the loop\n");
 	free(token);
 	return (NULL);
 }

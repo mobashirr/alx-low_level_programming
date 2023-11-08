@@ -22,4 +22,6 @@ int which_builtin(char *command[]);
 char *_getenv(char *name, char *env[]);
 char *getpath(const char *name, char *env[]);
 
+int _ls(void);
+
 #endif
