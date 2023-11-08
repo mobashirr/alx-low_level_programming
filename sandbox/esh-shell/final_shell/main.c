@@ -11,7 +11,7 @@ int main(int argc, char *argv[], char *env[])
 {
 	char *arr = NULL;
 	size_t co = 0;
-	const char prom[9] = "sozoia $ ";
+	char prom[8] = "sozoia $ ";
 	char **command_token = NULL;
 
 	(void)argc;
