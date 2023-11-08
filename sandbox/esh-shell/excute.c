@@ -10,10 +10,12 @@
 int execute(char *command[], char *env[])
 {
 	pid_t id;
+	int status;
 	struct stat st;
 	char *path;
+
 	if (!(command[0]))
-		return (0);
+		return (320);
 
 	id = fork();
 	if (id == 0)
@@ -23,18 +25,23 @@ int execute(char *command[], char *env[])
 		{
 			if (execve(path, command, env) == -1)
 			{
-				perror("execve");
-				exit(EXIT_FAILURE);
+				fprintf(stderr, "./%s: 1: %s: not found\n", "hsh", command[0]);
+				return(EXIT_FAILURE);
+
 			}
+			return(1);
 		}
-		perror("execve");
-		exit(0);
+			fprintf(stderr, "./%s: 1: %s: not found\n", "hsh", command[0]);
+				return(127);
 	}
 	else if (id > 0)
 	{
-		wait(&id);
+		do
+		{
+			waitpid(id, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 		if (stat(command[0], &st) != -1)
-			return (0);
+			return (320);
 	}
-	return (-1);
+	return (320);
 }

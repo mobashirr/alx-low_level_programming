@@ -13,6 +13,7 @@ int main(int argc, char *argv[], char *env[])
 	size_t co = 0;
 	const char prom[9] = "sozoia $ ";
 	char **command_token = NULL;
+	int status;
 
 	(void)argc;
 	(void)argv;
@@ -22,12 +23,15 @@ int main(int argc, char *argv[], char *env[])
 			write(1,&prom,8);
 
 		if (getline(&arr, &co, stdin) == -1)
-			exit (0);
+		break;
 
 		command_token = token(arr);
 		if (command_token) 
 		{
-			control(command_token,env);
+			status = control(command_token,env);
+			if(status != 320)
+			break;
+
 			free_command(command_token);
 			free(arr);
 		}
@@ -35,6 +39,20 @@ int main(int argc, char *argv[], char *env[])
 			free(arr);
 
 		arr = NULL;
+	}
+
+	switch (status)
+	{
+	case(0):
+		exit(0);
+	case(1):
+		exit(1);
+	case(2):
+		exit(2);
+	case(127):
+		exit(127);
+	default:
+		break;
 	}
 		return (0);
 }

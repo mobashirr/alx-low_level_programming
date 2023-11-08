@@ -15,7 +15,7 @@ int control(char *command_token[],char *env[])
 
 
     	if(!command_token[0])
-		return 0;
+		return (320);
 
 	check = which_builtin(command_token);
 	if (check != -1)
@@ -24,8 +24,10 @@ int control(char *command_token[],char *env[])
 	if (bu == -1 && check == -1)
 		ex = execute(command_token, env);
 
-	if (ex == -1)
-		return (-1);
+	if (ex == 320)
+		return (320);
+	else
+		return(ex);
 
 	return 0;
 }

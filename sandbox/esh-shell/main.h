@@ -8,6 +8,9 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <errno.h>
+
+
 
 int control(char *command_token[], char *env[]);
 int execute(char *command[], char *env[]);
