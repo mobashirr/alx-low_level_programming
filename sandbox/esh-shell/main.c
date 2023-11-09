@@ -14,6 +14,7 @@ int main(int argc, char *argv[], char *env[])
 	size_t co = 0;
 	char prom[5] = " ($) ";
 	char **command_token = NULL;
+	int status;
 
 	(void)argc;
 	(void)argv;
@@ -23,23 +24,25 @@ int main(int argc, char *argv[], char *env[])
 			write(1,&prom,5);
 
 		if (getline(&arr, &co, stdin) == -1)
-		{
-			if(arr)
-			free(arr);
-			exit (0);
-		}
+			break;
 
 		command_token = token(arr);
 		if (command_token) 
 		{
-			control(command_token,env);
+			status =control(command_token,env);
 			free_command(command_token);
 			free(arr);
 		}
 		else
-			free(arr);
+		free(arr);
+
 
 		arr = NULL;
 	}
+
+		if(arr)
+		free(arr);
+		exit(status);
+
 		return (0);
 }

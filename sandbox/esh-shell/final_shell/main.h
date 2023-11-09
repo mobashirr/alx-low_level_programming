@@ -9,6 +9,8 @@
 #include <string.h>
 #include <sys/stat.h>
 
+#define BUFFER_SIZE 1024
+
 int control(char *command_token[], char *env[]);
 int execute(char *command[], char *env[]);
 
@@ -21,7 +23,7 @@ int which_builtin(char *command[]);
 
 char *_getenv(char *name, char *env[]);
 char *getpath(const char *name, char *env[]);
+char *_getline(void);
 
-int _ls(void);
 
 #endif

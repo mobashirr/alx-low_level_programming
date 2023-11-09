@@ -10,8 +10,8 @@
 */
 int main(int argc, char *argv[], char *env[])
 {
-	char *arr = NULL;
-	size_t co = 0;
+	char *(*arr)(void);
+	char *line;
 	char prom[5] = " ($) ";
 	char **command_token = NULL;
 
@@ -22,24 +22,22 @@ int main(int argc, char *argv[], char *env[])
 		if(isatty(STDIN_FILENO) != 0)
 			write(1,&prom,5);
 
-		if (getline(&arr, &co, stdin) == -1)
-		{
-			if(arr)
-			free(arr);
-			exit (0);
-		}
+		arr = _getline;
 
-		command_token = token(arr);
-		if (command_token) 
-		{
-			control(command_token,env);
-			free_command(command_token);
-			free(arr);
-		}
+        	line = arr();
+        	if (!line)
+           		 exit(0);
 		else
-			free(arr);
-
-		arr = NULL;
+		{
+			if (line && line[0] != '\0')
+			command_token = token(line);
+			if (command_token) 
+			{
+				control(command_token,env);
+				free_command(command_token);
+			}
+			free(line);
+		}
 	}
 		return (0);
 }

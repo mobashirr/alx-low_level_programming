@@ -12,13 +12,17 @@ int execute(char *command[], char *env[])
 	pid_t id;
 	struct stat st;
 	char *full_path;
+	int exit_status;
+
 	if (!(command[0]))
-		return (0);
+		return (1);
 
 	id = fork();
 	if (id == 0)
 	{
 		full_path = getpath(command[0], env);
+		if (!full_path)
+		exit(127);
 		if (stat(full_path, &st) != -1 || !*command)	/*stat return -1  if the program doesn't exist*/
 		{
 			if (execve(full_path, command, env) == -1)
@@ -34,9 +38,11 @@ int execute(char *command[], char *env[])
 	}
 	else if (id != 0)
 	{
-		wait(&id);
-		if (stat(command[0], &st) != -1)
-			return (0);
+		int status;
+	 wait(&status);
+       	 exit_status = WEXITSTATUS(status);
+	 /*printf("%d\n",exit_status);	*/
+		return(exit_status);
 	}
 	return (-1);
 }

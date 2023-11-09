@@ -22,9 +22,6 @@ char *_getenv(char *name, char *env[])
 	{
 		return(strtok(NULL,"="));	
 	}
-	if(token)
-	free(token);
-
 	return (NULL);
 }
 /**

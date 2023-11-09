@@ -20,7 +20,7 @@ int control(char *command_token[],char *env[])
 {
 	int bu = -1;
     	int ex = -1;
-	int check;
+	int check = -1;
 
 
     	if(!command_token[0])
@@ -32,9 +32,8 @@ int control(char *command_token[],char *env[])
 
 	if (bu == -1 && check == -1)
 		ex = execute(command_token, env);
+	else if (bu != -1 && ex == -1)
+		return 0;
 
-	if (ex == -1)
-		return -1;
-
-	return 0;
+	return (ex);
 }
