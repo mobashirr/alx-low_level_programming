@@ -6,7 +6,7 @@
  * @env: array of string contain the inviroment varialbe.
  * Return: string contain the value of the variable if success else NULL.
 */
-char *_getenv(char *name, char *env[])
+char *_getenv2(char *name, char *env[])
 {
 	int i = 0;
 	char *token = NULL;
@@ -32,7 +32,7 @@ char *_getenv(char *name, char *env[])
 */
 char *getpath(const char *name, char *env[]) 
 {
-	char *pathenv = _getenv("PATH", env);
+	char *pathenv = _getenv2("PATH", env);
 	struct stat st;
 	char *full_path, *delim = ":";
 	char *token;

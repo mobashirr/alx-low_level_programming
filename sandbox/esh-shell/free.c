@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _realloc - this function reallocate memory for array of string.
  * @array: array of string (arr of ptr actully).
@@ -35,7 +34,6 @@ void* _realloc(void* array, size_t* size, size_t new_size)
 
 	return (new_array);
 }
-
 
 /**
  * free_command: free allocated memory for array of string.

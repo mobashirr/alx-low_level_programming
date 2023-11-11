@@ -1,48 +1,36 @@
 #include "main.h"
-#include "main.h"
 
+int exit_stat = 0;
 /**
  * main - entry point
- * @argc:
- * @argv:
- * @env:
  * Return: 0
 */
-int main(int argc, char *argv[], char *env[])
+int main(void)
 {
-	char *arr = NULL;
-	size_t co = 0;
-	char prom[5] = " ($) ";
-	char **command_token = NULL;
-	int status;
+        char *line = NULL, **tokens;
+	size_t len = 0;
+        const char *prompt = "(shell A&M)$ ";
+        static int status = 0;
 
-	(void)argc;
-	(void)argv;
-	while (1) 
-	{
+        while(1)
+        {
 		if(isatty(STDIN_FILENO) != 0)
-			write(1,&prom,5);
+		write(1,prompt,12);
 
-		if (getline(&arr, &co, stdin) == -1)
+		if (getline(&line, &len, stdin) == -1)
 			break;
 
-		command_token = token(arr);
-		if (command_token) 
-		{
-			status =control(command_token,env);
-			free_command(command_token);
-			free(arr);
-		}
-		else
-		free(arr);
+                tokens = parse(line);
 
+                if(tokens[0])
+                        status = execfun(tokens);
 
-		arr = NULL;
-	}
+		if(tokens)
+                        free(tokens);
+        }
+	if(line)
+		free(line);
 
-		if(arr)
-		free(arr);
-		exit(status);
-
-		return (0);
+        exit(status);
+        return (0);
 }
