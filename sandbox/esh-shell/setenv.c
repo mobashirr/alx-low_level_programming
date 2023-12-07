@@ -1,94 +1,76 @@
 #include "main.h"
 
 /**
- * 
- * 
- * 
+ * _setenv_ - set name to value
+ * @name: name of env
+ * @value: value of new env
+ * @rewrite: if set replace any current value
+ * @Return: 0 if success, -1 otherwise
 */
-char **copy_environment(void)
+
+int _setenv_(const char *name, const char *value, int rewrite)
 {
-    char **env = NULL;
-    int i,k,j;
+	static char **lastenv;
+	char *C;
+	int l_value, offset;
 
-    for (i = 0; environ[i]; i++)
-        ;
-
-    env = malloc((i + 1) * sizeof(char *));
-    if (!env)
-        return NULL;
-
-    for (j = 0; j < i; j++)
-    {
-        env[j] = strdup(environ[j]);
-        if (!env[j])
-        {
-            for ( k = 0; k < j; k++)
-                free(env[k]);
-            free(env);
-            return NULL;
-        }
-    }
-
-    env[i] = NULL;
-
-    return env;
+	if (*value == '=')
+		++value;
+	l_value = _strlen(value);
+	if ((C = _findenv_(name, &offset)))
+	{
+		if (!rewrite)
+			return (0);
+		if ((int)_strlen(C) >= l_value)
+		{
+			while ((*C++ = *value++))
+				;
+			return (0);
+		}
+	}
+	else
+	{
+		size_t cnt;
+		char **P;
+		
+		for (P = environ; *P != NULL; P++)
+			;
+		cnt = P - environ;
+		P = (char **)_realloc_(lastenv, sizeof(char *) * (cnt + 2));
+		if (!P)
+			return (1);
+		if (lastenv != environ)
+			memcpy(P, environ, cnt * sizeof(char *));
+		lastenv = environ = P;
+		offset = cnt;
+		environ[cnt + 1] = NULL;
+	}
+	for (C = (char *)name; *C && *C != '='; ++C)
+		;
+	if (!(environ[offset] =
+			malloc((size_t)((int)(C - name) + l_value + 2))))
+			return (1);
+	for (*C++ = '='; (*C++ = *value++);)
+		;
+	return (0);
 }
 
 /**
- * _setenv -
- * @args:
- * Return: 0 if success
+ * _unsetenv_ - unset enviorn
+ * @name: name to be unset
+ * @Return: 0 if success, -1 otherwise
 */
-int _setenv(char **args)
+
+int _unsetenv_(const char *name)
 {
-    char **env = copy_environment();
-    size_t len = 0, new_len = 0;
-    int i, name_len;
+	char **P;
+	int offset;
 
-    if (!args || !args[0] || !args[1])
-    {
-        free(env);
-        return 1;
-    }
-
-    name_len = strlen(args[0]);
-
-    for (i = 0; env[i]; i++)
-        len += strlen(env[i]) + 1;
-
-    for (i = 0; env[i]; i++)
-    {
-        if (strncmp(env[i], args[0], name_len) == 0 && env[i][name_len] == '=')
-        {
-            if (!atoi(args[2]))
-            {
-                free(env);
-                return 0;
-            }
-            free(env[i]);
-            break;
-        }
-    }
-
-    new_len = len + name_len + strlen(args[1]) + 2;
-    env = realloc(env, (i + 2) * sizeof(char *));
-    if (!env)
-    {
-        free(env);
-        return 1;
-    }
-
-    env[i] = malloc(new_len);
-    if (!env[i])
-    {
-        free(env);
-        return 1;
-    }
-
-    snprintf(env[i], new_len, "%s=%s", args[1], args[2]);
-    env[i + 1] = NULL;
-
-    environ = env;
-
-    return 0;
+	while (_findenv_(name, &offset))
+	{
+		for (P = &environ[offset];; ++P)
+			if (!(*P = *(P + 1)))
+				break;
+	}
+	return 0;
 }
