@@ -1,4 +1,4 @@
 #!/bin/bash
-gcc -shared -fPIC -o mylib.so rand.c -ldl
-export LD_PRELOAD=/home/moh-bash/Devlopment/github_repos/alx-low_level_programming/0x18-dynamic_libraries/0x18.c/mylib.so
+wget -O lib.so https://github.com/sozoia/alx-low_level_programming/raw/main/0x18-dynamic_libraries/mylib.so
+export LD_PRELOAD=/lib.so
 
