@@ -9,18 +9,34 @@
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	/*we need to get value of key:*/
-	int ind;
+	int ind = -1;
 	char *array = NULL;
+	char * wrong = "(null)";
+
+	if (!ht || !key)
+		return (wrong);
 
 	/*first get teh index using my key_index:*/
+	printf("try to get idx:\n");
 	ind = key_index((const unsigned char *)key, ht->size);
-
-	if (ind != -1)
+	printf("%d\n", ind);
+	printf("if stat::\n");
+	if (ind != -1 && ht->array[ind] && ht->array[ind]->key)
 	{
 		/*now i have the index i can access the node of my key:*/
-		array = (char *)ht->array[ind]->value;
-		return (array);
+	if (ht->array[ind]->value != NULL)
+	{
+    	printf("inside strcmp: Key found!\n");
+    	array = (char *)ht->array[ind]->value;
+    	return (array);
 	}
 	else
-		return (NULL);
+	{
+    	printf("Key not found or value is NULL.\n");
+    	return NULL;
+	}
+
+	}
+	else
+		return (wrong);
 }
