@@ -4,7 +4,8 @@
             "name": "linux-gcc-x64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/x86_64-linux-gnu"
+                "/usr/include/x86_64-linux-gnu",
+                "/usr/include/c++/11/backward"
             ],
             "compilerPath": "/usr/bin/cpp",
             "cStandard": "c89",
