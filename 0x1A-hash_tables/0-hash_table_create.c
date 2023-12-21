@@ -4,17 +4,14 @@
  * hash_table_create - create a new hash taple
  * the hasp table is awsome its just like dictionareys in python
  * @size: is the size of the array (contain all keys and values)
- * Return: new hash taple
+ * Return: new hash taple if any wrong NULL
 */
 hash_table_t *hash_table_create(unsigned long int size)
 {
-
 	/*hash_table_t is a custom struct used to implement hash tapls*/
 	hash_table_t *new = NULL;
 	hash_node_t *arr = NULL;
 
-	if (size <= 0)
-		return (NULL);
 
 	new = malloc(sizeof(hash_table_t));
 	if (!new)
@@ -27,7 +24,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 	}
 
-	/*the hash taple contain size of my nodes and the arr of nodes*/
+	/*the hash table size of array contain all of my nodes and the arr of nodes*/
 	new->size = size;
 	/*each node contain the key and the value*/
 	new->array = &arr;
