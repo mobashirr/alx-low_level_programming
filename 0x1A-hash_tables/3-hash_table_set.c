@@ -25,12 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	size_hash = ht->size;	/*size of hash table*/
 	ind = key_index((const unsigned char *)key, size_hash); /*get the index for key*/
 
-	if (ht->array[ind] != NULL && strcmp(ht->array[ind]->key, key) == 0)	
-	{	/*if already key there we handle it using chaining method*/
 		new->next = ht->array[ind];
-		ht->array[ind] = new;
-	}
-	else
 		ht->array[ind] = new;
 
 	return (1);
