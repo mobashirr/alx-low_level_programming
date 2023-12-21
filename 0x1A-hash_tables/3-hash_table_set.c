@@ -18,14 +18,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!new)
 		return (0);
 
-	new->key = (char *)key;
-	new->value = (char *)value;
+	new->key = strdup(key);
+	new->value = strdup(value);
 	new->next = NULL;
 
 	size_hash = ht->size;	/*size of hash table*/
 	ind = key_index((const unsigned char *)key, size_hash); /*get the index for key*/
 
-	if (ht->array[ind])	
+	if (ht->array[ind] != NULL && strcmp(ht->array[ind]->key, key) == 0)	
 	{	/*if already key there we handle it using chaining method*/
 		new->next = ht->array[ind];
 		ht->array[ind] = new;

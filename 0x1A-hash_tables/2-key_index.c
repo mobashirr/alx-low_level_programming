@@ -10,10 +10,16 @@
 */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
-	unsigned long int djb2;
+	unsigned long int djb2, result;
 
 	/*create a hash value:*/
 	djb2 = hash_djb2(key);
+	result = djb2 % size;
+
+	/*handle out of range cases*/
+	if (result > size)
+		return (-1);
+
 	/*return the remainder of hash value / size of hash table*/
-	return (djb2 % size);
+	return (result);
 }
