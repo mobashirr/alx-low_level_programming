@@ -48,7 +48,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	shash_node_t *new_node, *temp;
-	int a = 0, b = 0;
+	int a = 0;
 
 	if (!ht || !key || *key == '\0' || !value)
 		return (0);
@@ -75,32 +75,38 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 
+	new_node->next = NULL;
 	temp = ht->shead;
 	while (temp)
-	{/*sort in order:*/
+	{
+    	a = strcmp(new_node->value, temp->value);
 
-		if (ht->shead == NULL)
-		{
-			ht->shead = new_node;
-			break;
-		}
-		a = *new_node->value;
-		b = *temp->value;
-		if (a < b)
-		{
-			new_node->sprev = temp->sprev;
-			new_node->snext = temp;
-			temp->sprev->snext = new_node;
-			temp->sprev = new_node;
-		}
-		if (temp->snext)
-			temp = temp->snext;
-		else
-		{
-			ht->stail = temp;
-			break;
-		}
+    	if (a < 0)
+    	{
+        if (temp->sprev)
+        {
+            temp->sprev->snext = new_node;
+            new_node->sprev = temp->sprev;
+        }
+        else
+        {
+            ht->shead = new_node;
+        }
 
+        temp->sprev = new_node;
+        new_node->snext = temp;
+        break;
+    }
+
+    if (temp->snext)
+        temp = temp->snext;
+    else
+    {
+        ht->stail = new_node;
+        temp->snext = new_node;
+        new_node->sprev = temp;
+        break;
+    }
 	}
 
 	new_node->next = ht->array[index];	/*(handle collisions: */
