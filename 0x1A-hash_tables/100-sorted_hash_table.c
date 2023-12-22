@@ -80,7 +80,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	while (temp)
 	{
 		/*strcmp return number less than 0 if first string have value less than the second(s1 < s2)*/
-    	a = strcmp(new_node->value, temp->value);
+    	a = strcasecmp(new_node->value, temp->value);
 
     	if (a < 0)
     	{
