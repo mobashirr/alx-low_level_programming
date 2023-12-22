@@ -202,7 +202,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 	printf("{");
 
-	for (i = ht->size - 1; i > 0; i--)
+	for (i = ht->size - 1; i != (unsigned int)-1; i--)
 	{
 		node = ht->array[i];
 
