@@ -3,10 +3,8 @@
 /**
  * hash_table_set - Adds an element to the hash table.
  * @ht: The hash table to add or update the key/value.
- * @key: The key. Key can't be an empty string.
- * @value: The value associated with the key. Value must be duplicated.
- *         Value can be an empty string.
- *
+ * @key: The key.
+ * @value: new value
  * Return: 1 if it succeeded, 0 otherwise.
  * In case of collision, add the new node at the beginning of the list.
  */

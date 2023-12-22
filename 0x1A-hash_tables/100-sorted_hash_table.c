@@ -2,9 +2,10 @@
 
 
 /**
- * shash_table_create - create
- * @size:
- * Return: hash table
+ * shash_table_create - create a new hash taple type shash_table_t
+ * the hasp table is awsome its just like dictionareys in python
+ * @size: is the size of the array (contain all keys and values)
+ * Return: new hash taple if any wrong NULL
 */
 shash_table_t *shash_table_create(unsigned long int size)
 {
@@ -29,18 +30,25 @@ shash_table_t *shash_table_create(unsigned long int size)
 	}
 	/*the hash table size of array contain all of my nodes and the arr of nodes*/
 	new->size = size;
-    new->shead = NULL;
-    new->stail = NULL;
+	new->shead = NULL;
+	new->stail = NULL;
 
 	return (new);
 }
 
-
+/**
+ * shash_table_set - Adds an element to the hash table.
+ * @ht: The hash table to add or update the key/value.
+ * @key: The key. Key can't be an empty string.
+ * @value: The new value,
+ * Return: 1 if added 0 otherwise.
+ * In case of collision, add the new node at the beginning of the list.
+ */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	shash_node_t *new_node, *temp;
-    int a = 0, b = 0;
+	int a = 0, b = 0;
 
 	if (!ht || !key || *key == '\0' || !value)
 		return (0);
@@ -67,33 +75,39 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
 
-    temp = ht->shead;
-    while (temp)
-    {
-        a = *new_node->value - 'a';
-        b = *temp->value - 'a';
-        if (a < b)
-        {
-            new_node->sprev = temp->sprev;
-            new_node->snext = temp;
-            temp->sprev->snext = new_node;
-            temp->sprev = new_node;
-        }
-        if (temp->snext)
-            temp = temp->snext;
-        else
-        {
-            ht->stail = temp;
-            break;
-        }
+	temp = ht->shead;
+	while (temp)
+	{
+		a = *new_node->value - 'a';
+		b = *temp->value - 'a';
+		if (a < b)
+		{
+			new_node->sprev = temp->sprev;
+			new_node->snext = temp;
+			temp->sprev->snext = new_node;
+			temp->sprev = new_node;
+		}
+		if (temp->snext)
+			temp = temp->snext;
+		else
+		{
+			ht->stail = temp;
+			break;
+		}
 
-    }
+	}
 
 	new_node->next = ht->array[index];	/*(handle collisions: */
 	ht->array[index] = new_node;
 	return (1);
 }
 
+/**
+ * shash_table_get - get value of key in hash taple
+ * @ht: hash table
+ * @key: key we want to get its value
+ * Return: the value of key
+*/
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
 	/*we need to get value of key:*/
@@ -126,6 +140,11 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	else
 		return (NULL);
 }
+
+/**
+ * shash_table_print - Print a hash table.
+ * @ht: The hash table to print.
+ */
 void shash_table_print(const shash_table_t *ht)
 {
 	unsigned int i;
@@ -154,18 +173,23 @@ void shash_table_print(const shash_table_t *ht)
 
 	printf("}\n");
 }
+
+/**
+ * shash_table_print_rev - Print a hash table in reverse.
+ * @ht: The hash table to print.
+ */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-    	unsigned int i;
+		unsigned int i;
 	shash_node_t *node;
-	int first = 1; /* Flag to handle comma placement */
+	int first = 1;
 
 	if (ht == NULL)
 		return;
 
 	printf("{");
 
-	for (i = ht->size - 1; i >= 0; ++i)
+	for (i = ht->size - 1; i > 0 || i == 0; i--)
 	{
 		node = ht->array[i];
 
@@ -182,6 +206,11 @@ void shash_table_print_rev(const shash_table_t *ht)
 
 	printf("}\n");
 }
+
+/**
+ * shash_table_delete - delete shash table
+ * @ht: hash table
+*/
 void shash_table_delete(shash_table_t *ht)
 {
 	unsigned long int i;
