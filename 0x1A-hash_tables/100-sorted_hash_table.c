@@ -73,13 +73,26 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (!new_node)
 		return (0);
 	new_node->key = strdup(key);
-	new_node->value = strdup(value);
 
+	if (!new_node->key)
+	{
+		free(new_node);
+		return (0);
+	}
+	new_node->value = strdup(value);
+	if (!new_node->value)
+	{
+		free(new_node);
+		free(new_node->key);
+		return (0);
+	}
 	new_node->next = NULL;
 	temp = ht->shead;
 	while (temp)
 	{
-		/*strcmp return number less than 0 if first string have value less than the second(s1 < s2)*/
+		/*strcasecmp return number less than 0 
+		if first string have value less than the second(s1 < s2)
+		strcmp also work same  but this more sensetive */
     	a = strcasecmp(new_node->value, temp->value);
 
     	if (a < 0)
