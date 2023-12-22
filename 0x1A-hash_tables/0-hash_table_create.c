@@ -10,23 +10,25 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	/*hash_table_t is a custom struct used to implement hash tapls*/
 	hash_table_t *new = NULL;
-	hash_node_t *arr = NULL;
+	unsigned long int i;
 
 	new = malloc(sizeof(hash_table_t));
 	if (!new)
 		return (NULL);
 
-	arr = malloc(sizeof(hash_node_t *) * size);
-	if (!arr)
+	new->array = malloc(sizeof(hash_node_t *) * size);
+	if (!new->array)
 	{
 		free(new);
 		return (NULL);
 	}
 
+	for (i = 0; i < size; i++)
+	{
+		new->array[i] = NULL;
+	}
 	/*the hash table size of array contain all of my nodes and the arr of nodes*/
 	new->size = size;
-	/*each node contain the key and the value*/
-	new->array = &arr;
 
 	return (new);
 }
