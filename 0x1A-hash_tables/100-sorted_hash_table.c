@@ -77,7 +77,13 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	temp = ht->shead;
 	while (temp)
-	{
+	{/*sort in order:*/
+
+		if (ht->shead == NULL)
+		{
+			ht->shead = new_node;
+			break;
+		}
 		a = *new_node->value - 'a';
 		b = *temp->value - 'a';
 		if (a < b)
