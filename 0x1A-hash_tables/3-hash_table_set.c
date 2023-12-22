@@ -2,65 +2,63 @@
 
 /**
  * hash_table_set - Adds an element to the hash table.
- * @ht: The hash table to update or add to.
- * @key: The key. Must not be an empty string.
- * @value: The value associated with the key.
+ * @ht: The hash table to add or update the key/value.
+ * @key: The key. Key can't be an empty string.
+ * @value: The value associated with the key. Value must be duplicated.
+ *         Value can be an empty string.
  *
- * Return: 1 on success, 0 on failure.
+ * Return: 1 if it succeeded, 0 otherwise.
+ * In case of collision, add the new node at the beginning of the list.
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    hash_node_t *new_node = NULL;
-    unsigned int ind, size_hash;
+	unsigned long int index;
+	hash_node_t *new_node, *temp;
 
-    if (!ht || !key || !value)
-        return (0);
+	if (!ht || !key || *key == '\0' || !value)
+		return (0);
 
-    new_node = malloc(sizeof(hash_node_t));
-    if (!new_node)
-        return (0);
+	index = key_index((const unsigned char *)key, ht->size);
+	temp = ht->array[index];
 
-    new_node->key = strdup(key);
-    if (!new_node->key)
-    {
-        free(new_node);
-        return (0);
-    }
+	/* Check for collision */
+	while (temp)
+	{
+		/* If key already exists, update the value and return success */
+		if (strcmp(temp->key, key) == 0)
+		{
+			free(temp->value); /* Free existing value */
+			temp->value = strdup(value);
+			if (!temp->value)
+				return (0);
+			return (1);
+		}
+		temp = temp->next;
+	}
 
-    new_node->value = strdup(value);
-    if (!new_node->value)
-    {
-        free(new_node->key);
-        free(new_node);
-        return (0);
-    }
+	/* If key doesn't exist, create a new node */
+	new_node = malloc(sizeof(hash_node_t));
+	if (!new_node)
+		return (0);
 
-    size_hash = ht->size;
-    ind = key_index((const unsigned char *)key, size_hash);
-/*
-    temp = ht->array[ind];
+	new_node->key = strdup(key);
+	if (!new_node->key)
+	{
+		free(new_node);
+		return (0);
+	}
 
-    while (temp)
-    {
-        if (strcmp(new_node->key, temp->key) == 0)
-        {
-            free(new_node->key);
-            free(new_node->value);
-            free(new_node);
+	new_node->value = strdup(value);
+	if (!new_node->value)
+	{
+		free(new_node->key);
+		free(new_node);
+		return (0);
+	}
 
-            free(temp->value);
-            temp->value = strdup(value);
-            if (!temp->value)
-                return (0);
+	/* Add new node at the beginning of the list (handle collisions) */
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
 
-            return (1);
-        }
-
-        temp = temp->next;
-    }
-*/
-    new_node->next = ht->array[ind];
-    ht->array[ind] = new_node;
-
-    return (1);
+	return (1);
 }
