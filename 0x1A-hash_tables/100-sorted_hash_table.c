@@ -79,34 +79,35 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	temp = ht->shead;
 	while (temp)
 	{
+		/*strcmp return number less than 0 if first string have value less than the second(s1 < s2)*/
     	a = strcmp(new_node->value, temp->value);
 
     	if (a < 0)
     	{
-        if (temp->sprev)
-        {
-            temp->sprev->snext = new_node;
-            new_node->sprev = temp->sprev;
-        }
-        else
-        {
-            ht->shead = new_node;
-        }
+        	if (temp->sprev)
+        	{/*if we will insert at midlle or end not at first*/
+            	temp->sprev->snext = new_node;
+            	new_node->sprev = temp->sprev;
+        	}
+        	else
+        	{/*insert at first (empty list)*/
+            	ht->shead = new_node;
+        	}
 
-        temp->sprev = new_node;
-        new_node->snext = temp;
-        break;
-    }
+        	temp->sprev = new_node;
+        	new_node->snext = temp;
+        	break;
+    	}
 
-    if (temp->snext)
-        temp = temp->snext;
-    else
-    {
-        ht->stail = new_node;
-        temp->snext = new_node;
-        new_node->sprev = temp;
-        break;
-    }
+    	if (temp->snext)
+        	temp = temp->snext;
+    	else
+    	{/*this case when insert at the end of the list(s1 == s2 always)*/
+        	ht->stail = new_node;
+        	temp->snext = new_node;
+        	new_node->sprev = temp;
+        	break;
+    	}
 	}
 
 	new_node->next = ht->array[index];	/*(handle collisions: */
