@@ -84,8 +84,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			ht->shead = new_node;
 			break;
 		}
-		a = *new_node->value - 'a';
-		b = *temp->value - 'a';
+		a = *new_node->value;
+		b = *temp->value;
 		if (a < b)
 		{
 			new_node->sprev = temp->sprev;
