@@ -1,12 +1,17 @@
-#include "head.h"
+#include "game.h"
 
+/**
+ * game_started - match starting point
+*/
 void game_started(void)
 {
+
 start:
 	int i = 1;
 	int again = 0,win;
-	draw = 0;
-	char board[3][3] = { 
+	draw = 0;	/*reset the glob var draw*/
+	char board[3][3] =
+	{
     	{'1', '2', '3'}, 
     	{'4', '5', '6'}, 
     	{'7', '8', '9'}
@@ -45,14 +50,19 @@ player2:
 	else if (win == 2)
 		printf("\n\ncongratulation player2 (o) you won \n");
 	else if (win == 3)
-		printf("\n\nlooks like draw \n");
+		printf("\n\nopps looks like draw \n");
 	sleep(2);
 	printf("\n\nto play again press 1: ");
 	scanf(" %d", &again);
 	if(again == 1)
 		goto start;
 }
-char get_input(char board[3][3])
+
+/**
+ * get_input - get the player choise
+ * @board: 3*3 arr that we want to modyfi
+*/
+void get_input(char board[3][3])
 {
 	char num = '0';
 
@@ -67,14 +77,14 @@ input:
 			printf("\n-> round(%d) \nplayer (%c) turn: ",draw,turn);
 			goto input;
 		}
-		return(num);
+		return;
 	}
 	else
 	{
 		printf("computer thinking .... ");
 		sleep(1);
 generate:
-		
+
 		srand(time(NULL));
 		int randomNumber = rand();
 		int min = 1;
@@ -85,7 +95,7 @@ generate:
 		if (check_vaild(random + '0',board) != 0)
 			goto generate;
 		printf("(%d)\n",random);
-		return(random + '0');
+		return;
 	}
-	return('#');
+	return;
 }
