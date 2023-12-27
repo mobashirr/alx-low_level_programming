@@ -1,12 +1,5 @@
-Resources
-Read or watch:
+# 0x10-variadic_functions
 
-stdarg.h
-Variadic Functions
-Const Keyword
-man or help:
-
-stdarg
 Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
@@ -14,25 +7,72 @@ General
 What are variadic functions
 How to use va_start, va_arg and va_end macros
 Why and how to use the const type qualifier
-Copyright - Plagiarism
-You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
-You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
-You are not allowed to publish any content of this project.
-Any form of plagiarism is strictly forbidden and will result in removal from the program.
-Requirements
-General
-Allowed editors: vi, vim, emacs
-All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-All your files should end with a new line
-A README.md file, at the root of the folder of the project is mandatory
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-You are not allowed to use global variables
-No more than 5 functions per file
-The only C standard library functions allowed are malloc, free and exit. Any use of functions like printf, puts, calloc, realloc etc… is forbidden
-You are allowed to use the following macros: va_start, va_arg and va_end
-You are allowed to use _putchar
-You don’t have to push _putchar.c, we will use our file. If you do it won’t be taken into account
-In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
-The prototypes of all your functions and the prototype of the function _putchar should be included in your header file called variadic_functions.h
-Don’t forget to push your header file
-All your header files should be include guarded
+
+
+# What are variadic functions
+variadic function is function that can takes unfixed amout of parameters
+such like printf function (int printf (const char *string, ...))
+
+we know that in c we need to specfi the type of the parameter in the prototype before we can use it and we also to need to declare it in the prototype but what if we want to make more dynamic function and we want to create variadic function what shuold we do ?
+
+first we need to declare it as variadic functiom in this way:
+    int printf (const char *string, ...)
+1- write normal prototype and you need to declare the fisrt parameter
+2- then you type ... in the second parameter
+
+this way we declared a variadic function
+
+# access the parametrs
+now to access the parameters of variadic function there is some macros used for that
+which are: va_list, va_start, va_arg, va_end
+
+va_list is a type used to declare a variable that will hold the information needed by the other three functions to access the variable arguments.
+va_start
+
+va_start initializes the va_list variable. It must be called once, at the beginning of the function that uses variable arguments.
+
+va_arg: retrieves the next argument from the variable argument list. It takes two parameters: the va_list variable and the type of the next argument.
+va_end
+
+va_end performs cleanup after variable arguments have been processed. It must be called before the function exits.
+
+
+/*
+int variadic_func(int num_args, ...)
+ {
+    int sum = 0;
+
+    // Declare a va_list variable
+    va_list args;
+
+    // Initialize the va_list variable with va_start
+    va_start(args, num_args);
+
+    // Access the variable arguments with va_arg
+    for (int i = 0; i < num_args; i++)
+    {
+        // each time we use this macro we get the next parameter
+        sum += va_arg(args, int);
+    }
+
+    // Cleanup with va_end
+    va_end(args);
+
+    return sum;
+}
+*/
+
+# using const type qualifier:
+
+The const type qualifier in C is used to declare variables whose values should not be modified after initialization.
+
+Why Use const:
+Readability and Intent:
+
+It makes your code more self-documenting. When a variable is declared as const, it signals to other developers that the value should not be changed.
+Preventing Accidental Modifications:
+
+Using const helps prevent unintentional modifications to variables. If you attempt to modify a const-qualified variable, the compiler will generate an error.
+Optimizations:
+
+The const qualifier allows the compiler to perform certain optimizations, knowing that the value of the variable won't change during its scope.
