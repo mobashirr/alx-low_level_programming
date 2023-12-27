@@ -38,7 +38,7 @@ va_end performs cleanup after variable arguments have been processed. It must be
 
 
 int variadic_func(int num_args, ...)
- {
+{
     int sum = 0;
 
     // Declare a va_list variable
