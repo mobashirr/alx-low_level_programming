@@ -32,6 +32,7 @@ char *argstostr(int ac, char **av)
         if (av[i])
         {
             strncat(new, av[i], len);
+            strcat(new, "\n");
         }
     }
     return (new);
@@ -41,7 +42,7 @@ char *argstostr(int ac, char **av)
  * main - check the code for ALX School students.
  *
  * Return: Always 0.
- 
+ */
 int main(int ac, char *av[])
 {
     char *s;
@@ -55,4 +56,4 @@ int main(int ac, char *av[])
     free(s);
     return (0);
 }
-*/
+
