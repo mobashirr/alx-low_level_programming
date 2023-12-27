@@ -37,7 +37,6 @@ va_end
 va_end performs cleanup after variable arguments have been processed. It must be called before the function exits.
 
 
-/*
 int variadic_func(int num_args, ...)
  {
     int sum = 0;
@@ -60,7 +59,7 @@ int variadic_func(int num_args, ...)
 
     return sum;
 }
-*/
+
 
 # using const type qualifier:
 
