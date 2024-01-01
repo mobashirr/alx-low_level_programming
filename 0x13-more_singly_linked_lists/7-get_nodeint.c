@@ -2,10 +2,10 @@
 
 /**
  * get_nodeint_at_index - this funtion give you
- * choise which node you want
+ * choise which node you want.
  * @head: linked list.
- * @index: the number of node
- * Return: the number (data) in the chosen node
+ * @index: the number of node.
+ * Return: the number (data) in the chosen node.
 */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
