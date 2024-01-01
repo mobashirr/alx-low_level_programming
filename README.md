@@ -8,7 +8,7 @@ In this repository, you will find a collection of projects and exercises that en
 
 ## Hello World in C
 
-Let's start with the classic "Hello, World!" program. Here's a simple example in C:
+Let's start with the classic "Hello, World!" program:
 
 ```c
 #include <stdio.h>
