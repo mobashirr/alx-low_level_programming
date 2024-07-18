@@ -5,6 +5,7 @@
  * @array: pointer to array of type int
  * @size: size of the array
  * @value: we want to find in the array
+ *
  * Return: int
  */
 int linear_search(int *array, size_t size, int value)
