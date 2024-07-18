@@ -4,9 +4,9 @@
  * binary_search - binary search algorithm
  * @array: pointer to array of type int
  * @size: size of the array
- * @value: we want to find in the array
+ * @value: value to find in the array
  *
- * Return: int
+ * Return: index of the value in the array or -1 if not found
  */
 int binary_search(int *array, size_t size, int value)
 {
